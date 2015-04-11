@@ -8,9 +8,12 @@ import android.content.res.Resources;
 import android.graphics.PorterDuff.Mode;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
+import android.os.Bundle;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
+import android.support.annotation.NonNull;
 import android.text.TextUtils;
+import android.util.Pair;
 import android.widget.ImageView;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -87,6 +90,36 @@ public class ConstantMethods {
 		}
 		return number;
 	}
+
+	/**
+	 * Extract the values of bundle into string.
+	 * @param bundle: Bundle to get data.
+	 * @return:String representing key values of the bundle
+	 */
+	public static String extractBundle(@NonNull Bundle bundle){
+		StringBuilder keyvals = new StringBuilder();
+		for (String s : bundle.keySet()) {
+			keyvals.append(s).append(": ").append(bundle.getString(s)).append("\n");
+		}
+		return keyvals.toString();
+	}
+
+	/**
+	 * Extract the values of bundle into string.
+	 *
+	 * @param bundle:
+	 * 		Bundle to get data.
+	 *
+	 * @return:String representing key values of the bundle
+	 */
+	public static ArrayList<Pair<String,String>> extractBundleArrayList(@NonNull Bundle bundle) {
+		ArrayList<Pair<String,String>> keyValPairs = new ArrayList<>();
+		for (String s : bundle.keySet()) {
+			keyValPairs.add(Pair.create(s,bundle.getString(s)));
+		}
+		return keyValPairs;
+	}
+
 
 	/**
 	 * Is arraylist null or empty
