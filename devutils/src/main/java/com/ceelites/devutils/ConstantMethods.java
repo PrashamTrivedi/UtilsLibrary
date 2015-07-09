@@ -1,17 +1,21 @@
 package com.ceelites.devutils;
 
+import android.Manifest.permission;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
-import android.graphics.PorterDuff.Mode;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
+import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.annotation.RequiresPermission;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.text.TextUtils;
 import android.util.Pair;
 import android.widget.ImageView;
@@ -23,6 +27,7 @@ import java.util.List;
  * Created by Prasham on 21-01-2015.
  */
 public class ConstantMethods {
+
 	/**
 	 * Checks whether device is connected or not
 	 *
@@ -31,6 +36,7 @@ public class ConstantMethods {
 	 *
 	 * @return: <code>true</code> if device is online, false otherwise.
 	 */
+	@RequiresPermission(permission.ACCESS_NETWORK_STATE)
 	public static boolean isOnline(Context context) {
 		ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 		boolean connectedOrConnecting = false;
@@ -62,6 +68,24 @@ public class ConstantMethods {
 	}
 
 	/**
+	 * Extract number from string, failsafe. If the string is not a proper number it will always return 0;
+	 *
+	 * @param string
+	 * 		: String that should be converted into a number
+	 *
+	 * @return : 0 if conversion to number is failed anyhow, otherwise converted number is returned
+	 */
+	public static int getNumber(String string) {
+		int number = 0;
+		if (!isEmptyString(string)) {
+			if (TextUtils.isDigitsOnly(string)) {
+				number = Integer.parseInt(string);
+			}
+		}
+		return number;
+	}
+
+	/**
 	 * This method checks if the string is empty or having null value.
 	 *
 	 * @param string
@@ -69,7 +93,7 @@ public class ConstantMethods {
 	 *
 	 * @return <code>true</code> if string is null, blank or having "null" as value
 	 */
-	public static boolean isEmptyString(CharSequence string) {
+	public static boolean isEmptyString(@Nullable CharSequence string) {
 		return (TextUtils.isEmpty(string) || string.toString().equalsIgnoreCase("null"));
 	}
 
@@ -154,6 +178,26 @@ public class ConstantMethods {
 	 * @param res
 	 * 		: Resources to fetch colors and (if needed drawable)
 	 * @param drawable
+	 * 		: Drawable to tint
+	 * @param colorRes
+	 * 		: Color which should be applied on drawable
+	 *
+	 * @return Drwable with applied color
+	 */
+	public static Drawable applyTinting(Resources res, Drawable drawable, @ColorRes int colorRes) {
+		int color = res.getColor(colorRes);
+		drawable.mutate();
+		Drawable drawableToTint = DrawableCompat.wrap(drawable);
+		DrawableCompat.setTint(drawableToTint, color);
+		return drawableToTint;
+	}
+
+	/**
+	 * Gets tinted drawable to draw anywhere you need
+	 *
+	 * @param res
+	 * 		: Resources to fetch colors and (if needed drawable)
+	 * @param drawable
 	 * 		: Drawable Resourse to tint
 	 * @param color
 	 * 		: Color which should be applied on drawable
@@ -165,42 +209,47 @@ public class ConstantMethods {
 	}
 
 	/**
+	 * Apply Drawable tint to image view, works for Pre-Lollipop.
+	 *
+	 * @param imageView
+	 * 		: Image view To tint.
+	 * @param color
+	 * 		: Color which should be applied on drawable
+	 */
+	public static void applyTintingToImageView(ImageView imageView, @ColorInt int color) {
+		Drawable drawable = imageView.getDrawable();
+		imageView.setImageDrawable(applyTinting(drawable, color));
+	}
+
+	/**
 	 * Gets tinted drawable to draw anywhere you need
 	 *
-	 * @param res
-	 * 		: Resources to fetch colors and (if needed drawable)
 	 * @param drawable
 	 * 		: Drawable to tint
-	 * @param colorRes
+	 * @param color
 	 * 		: Color which should be applied on drawable
 	 *
 	 * @return Drwable with applied color
 	 */
-	private static Drawable applyTinting(Resources res, Drawable drawable, @ColorRes int colorRes) {
-		int color = res.getColor(colorRes);
+	public static Drawable applyTinting(Drawable drawable, @ColorInt int color) {
 		drawable.mutate();
-		drawable.setColorFilter(color, Mode.SRC_IN);
-		return drawable;
-
+		Drawable drawableToTint = DrawableCompat.wrap(drawable);
+		DrawableCompat.setTint(drawableToTint, color);
+		return drawableToTint;
 	}
 
 	/**
-	 * Does a split without throwing an exception and giving proper array.
+	 * Gets tinted drawable to draw anywhere you need
 	 *
-	 * @param stringToSplit
-	 * 		: String to split.
-	 * @param delimiter:
-	 * 		Delimiter to split with.
+	 * @param drawable
+	 * 		: Drawable Resourse to tint
+	 * @param color
+	 * 		: Color which should be applied on drawable
 	 *
-	 * @return An array of splitted values. If delimiter is found in stringToSplit split will be done with the help of <code>TextUtils .split</code>,
-	 * else an array consisting only stringToSplit will be generated and returned
+	 * @return Drwable with applied color
 	 */
-	public static String[] failSafeSplit(String stringToSplit, String delimiter) {
-		if (stringToSplit.contains(delimiter)) {
-			return TextUtils.split(stringToSplit, delimiter);
-		} else {
-			return new String[]{stringToSplit};
-		}
+	public static Drawable getTintedDrawable(@DrawableRes Drawable drawable, @ColorInt int color) {
+		return applyTinting(drawable, color);
 	}
 
 	/**
@@ -240,5 +289,24 @@ public class ConstantMethods {
 
 		}
 		return joinedStrings;
+	}
+
+	/**
+	 * Does a split without throwing an exception and giving proper array.
+	 *
+	 * @param stringToSplit
+	 * 		: String to split.
+	 * @param delimiter:
+	 * 		Delimiter to split with.
+	 *
+	 * @return An array of splitted values. If delimiter is found in stringToSplit split will be done with the help of <code>TextUtils .split</code>,
+	 * else an array consisting only stringToSplit will be generated and returned
+	 */
+	public static String[] failSafeSplit(String stringToSplit, String delimiter) {
+		if (stringToSplit.contains(delimiter)) {
+			return TextUtils.split(stringToSplit, delimiter);
+		} else {
+			return new String[]{stringToSplit};
+		}
 	}
 }
