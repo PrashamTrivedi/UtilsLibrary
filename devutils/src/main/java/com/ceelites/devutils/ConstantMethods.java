@@ -97,23 +97,6 @@ public class ConstantMethods {
 		return (TextUtils.isEmpty(string) || string.toString().equalsIgnoreCase("null"));
 	}
 
-	/**
-	 * Extract number from string, failsafe. If the string is not a proper number it will always return 0;
-	 *
-	 * @param string
-	 * 		: String that should be converted into a number
-	 *
-	 * @return : 0 if conversion to number is failed anyhow, otherwise converted number is returned
-	 */
-	public static int getNumber(String string) {
-		int number = 0;
-		if (!isEmptyString(string)) {
-			if (TextUtils.isDigitsOnly(string)) {
-				number = Integer.parseInt(string);
-			}
-		}
-		return number;
-	}
 
 	/**
 	 * Extract the values of bundle into string.
