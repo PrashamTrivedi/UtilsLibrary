@@ -1,5 +1,31 @@
 apply plugin: 'com.android.library'
-apply from: 'D:\\gradle-mvn-push.gradle'
+
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = POM_NAME
+
+    publishedGroupId = GROUP
+    libraryName = POM_NAME
+    artifact = POM_ARTIFACT_ID
+
+    libraryDescription = POM_DESCRIPTION
+
+    siteUrl = POM_URL
+    gitUrl = POM_SCM_URL
+
+    libraryVersion = VERSION_NAME
+
+    developerId = POM_DEVELOPER_ID
+    developerName = POM_DEVELOPER_NAME
+    developerEmail = GITHUB_USERNAME
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+
 android {
     compileSdkVersion 21
     buildToolsVersion "21.1.2"
@@ -23,3 +49,5 @@ dependencies {
     compile 'com.android.support:support-annotations:22.2.0'
     compile 'com.android.support:support-v4:22.2.0'
 }
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
