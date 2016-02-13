@@ -3,6 +3,7 @@ package com.celites.utils_kotlin
 /**
  * Created by Prasham on 1/4/2016.
  */
+import android.annotation.TargetApi
 import android.content.ContentResolver
 import android.content.ContentUris
 import android.content.Context
@@ -40,6 +41,7 @@ public fun Uri.isDownloadDocuments() = authority.equals("com.android.providers.d
 
 public fun Uri.isMediaDocument() = authority.equals("com.android.providers.media.documents")
 
+@TargetApi(19)
 public fun Context.getFilePath(uri: Uri): String {
     var path = ""
     if (uri.isExternalStorageDocument()) {
@@ -78,6 +80,7 @@ public fun Context.getFilePath(uri: Uri): String {
     return path
 }
 
+@TargetApi(19)
 public fun ContentResolver.getRealPathFromUri(contentUri: Uri): String {
     var proj = arrayOf(MediaStore.Audio.Media.DATA)
     var cursor = query(contentUri, proj, null, null, null)
@@ -98,6 +101,7 @@ public fun ContentResolver.getRealPathFromUri(contentUri: Uri): String {
     }
 }
 
+@TargetApi(19)
 public fun Context.getDataColumn(uri: Uri, selection: String?, selectionArg: Array<String>?): String {
     val column = "_data"
     val projection = arrayOf(column)

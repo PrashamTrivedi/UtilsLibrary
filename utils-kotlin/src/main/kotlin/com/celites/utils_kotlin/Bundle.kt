@@ -14,13 +14,14 @@
 
 package com.celites.utils_kotlin
 
-import android.content.Intent
 import android.os.Bundle
-import android.os.IBinder
 import android.os.Parcelable
+import android.util.Pair
 
-
-public fun Bundle.put(intent: Intent, params: Array<out Pair<String, Any>>): Bundle {
+/**
+ * Add values to bundle
+ */
+public fun Bundle.put(params: Array<out Pair<String, Any>>): Bundle {
     params.forEach {
         val key = it.first
         val value = it.second
@@ -41,7 +42,7 @@ public fun Bundle.put(intent: Intent, params: Array<out Pair<String, Any>>): Bun
             is ShortArray -> putShortArray(key, value)
             is Boolean -> putBoolean(key, value)
             is BooleanArray -> putBooleanArray(key, value)
-            is IBinder -> putBinder(key, value)
+
             is Parcelable -> putParcelable(key, value)
             is Bundle -> putAll(value)
             is Array<*> -> when {
@@ -54,7 +55,9 @@ public fun Bundle.put(intent: Intent, params: Array<out Pair<String, Any>>): Bun
 }
 
 
-
+/**
+ * Extract bundle and returs string
+ */
 public fun Bundle.extractBundle(keyValSeparator: String = ": ", newSetSeparator: String = "\n"): String {
     var keyvals: StringBuilder = StringBuilder();
     keySet().forEach { keyvals.append(it).append(keyValSeparator).append(getString(it)).append(newSetSeparator) }

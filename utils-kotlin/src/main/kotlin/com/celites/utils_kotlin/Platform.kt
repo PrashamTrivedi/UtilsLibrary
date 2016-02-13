@@ -21,4 +21,5 @@ public fun Any.platformApi(): Int = Build.VERSION.SDK_INT
 
 public fun Any.platformIsOlderThan(version: Int): Boolean = Build.VERSION.SDK_INT < version
 
-public fun Any.platformHasApisFrom(version: Int): Boolean = Build.VERSION.SDK_INT >= version
+
+public fun Any.platformIsGreaterThan(version: Int): Boolean = Build.VERSION.SDK_INT >= version
