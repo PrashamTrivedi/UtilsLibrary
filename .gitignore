@@ -10,7 +10,7 @@ gradlew.bat
 /build
 build
 *.iml
-*.properties
+local.properties
 
 /.idea
 /gradle/wrapper/gradle-wrapper.jar
