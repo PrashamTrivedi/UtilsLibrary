@@ -21,7 +21,6 @@ import android.content.res.XmlResourceParser
 import android.graphics.Movie
 import android.graphics.Typeface
 import android.graphics.drawable.Drawable
-import android.support.v4.content.ContextCompat
 import android.util.DisplayMetrics
 
 

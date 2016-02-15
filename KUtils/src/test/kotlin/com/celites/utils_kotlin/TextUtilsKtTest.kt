@@ -1,7 +1,6 @@
 package com.celites.utils_kotlin
 
 import junit.framework.TestCase
-import org.junit.Test
 
 /**
  * Created by Prasham on 2/6/2016.

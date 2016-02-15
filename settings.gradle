@@ -1,1 +1,1 @@
-include ':app', ':devUtils', ':utils-kotlin'
+include ':app', ':devUtils', ':KUtils'
