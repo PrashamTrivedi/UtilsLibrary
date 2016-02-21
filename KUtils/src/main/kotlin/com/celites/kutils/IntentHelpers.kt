@@ -1,4 +1,4 @@
-package com.celites.utils_kotlin
+package com.celites.kutils
 
 import android.content.Context
 import android.content.Intent

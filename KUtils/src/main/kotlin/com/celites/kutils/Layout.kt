@@ -12,10 +12,16 @@
  * limitations under the License.
  */
 
-package com.celites.utils_kotlin
+package com.celites.kutils
 
-import android.app.Fragment
+import android.content.Context
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 
-public fun Fragment.allowOptionsMenu(hasOptionsMenu: Boolean = true) {
-    setHasOptionsMenu(hasOptionsMenu)
-}
+
+public fun Context.inflateLayout(layoutResId: Int, parent: ViewGroup?, attachToRoot: Boolean = false): View =
+        LayoutInflater.from(this).inflate(layoutResId, parent, attachToRoot)
+
+
+

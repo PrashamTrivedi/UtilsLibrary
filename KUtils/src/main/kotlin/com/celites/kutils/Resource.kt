@@ -12,7 +12,7 @@
  * limitations under the License.
  */
 
-package com.celites.utils_kotlin
+package com.celites.kutils
 
 import android.content.Context
 import android.content.res.ColorStateList
@@ -21,6 +21,7 @@ import android.content.res.XmlResourceParser
 import android.graphics.Movie
 import android.graphics.Typeface
 import android.graphics.drawable.Drawable
+import android.support.v4.content.ContextCompat
 import android.util.DisplayMetrics
 
 

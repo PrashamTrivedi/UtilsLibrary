@@ -1,1 +1,1 @@
-include ':app', ':devUtils', ':KUtils'
+include ':app', ':devUtils', ':kutils'

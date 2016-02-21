@@ -15,4 +15,8 @@ allprojects {
     repositories {
         jcenter()
     }
+    tasks.withType(Javadoc) {
+        options.addStringOption('doclint:none', '-quiet')
+        options.addStringOption('encoding', 'UTF-8')
+    }
 }

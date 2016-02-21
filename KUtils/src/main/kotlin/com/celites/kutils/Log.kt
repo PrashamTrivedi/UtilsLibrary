@@ -12,7 +12,7 @@
  * limitations under the License.
  */
 
-package com.celites.utils_kotlin
+package com.celites.kutils
 
 import android.util.Log
 

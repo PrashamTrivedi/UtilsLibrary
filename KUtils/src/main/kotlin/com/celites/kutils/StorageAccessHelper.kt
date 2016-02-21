@@ -1,4 +1,4 @@
-package com.celites.utils_kotlin
+package com.celites.kutils
 
 /**
  * Created by Prasham on 1/4/2016.
