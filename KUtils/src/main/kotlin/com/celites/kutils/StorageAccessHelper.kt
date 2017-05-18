@@ -20,7 +20,7 @@ public fun String.getExtension(): String {
     if (isEmptyString()) {
         return ""
     } else {
-        var dot = lastIndexOf(".")
+        val dot = lastIndexOf(".")
         if (dot >= 0) {
             return substring(dot)
         } else {
@@ -35,33 +35,33 @@ public fun Uri.isMediaUri() = authority.equals("media", true)
 
 public fun File.getUri() = Uri.fromFile(this)
 
-public fun Uri.isExternalStorageDocument() = authority.equals("com.android.externalstorage.documents")
+public fun Uri.isExternalStorageDocument() = authority == "com.android.externalstorage.documents"
 
-public fun Uri.isDownloadDocuments() = authority.equals("com.android.providers.downloads.documents")
+public fun Uri.isDownloadDocuments() = authority == "com.android.providers.downloads.documents"
 
-public fun Uri.isMediaDocument() = authority.equals("com.android.providers.media.documents")
+public fun Uri.isMediaDocument() = authority == "com.android.providers.media.documents"
 
 @TargetApi(19)
 public fun Context.getFilePath(uri: Uri): String {
     var path = ""
     if (uri.isExternalStorageDocument()) {
-        var docId = DocumentsContract.getDocumentId(uri)
-        var split = docId.split(":")
-        var storageType = split[0]
+        val docId = DocumentsContract.getDocumentId(uri)
+        val split = docId.split(":")
+        val storageType = split[0]
 
         if (storageType.equals("primary", true)) {
-            path = Environment.getExternalStorageDirectory().path + "/" + split[1];
+            path = Environment.getExternalStorageDirectory().path + "/" + split[1]
         }
     } else if (uri.isDownloadDocuments()) {
-        var id = DocumentsContract.getDocumentId(uri)
+        val id = DocumentsContract.getDocumentId(uri)
         val contentUri = ContentUris.withAppendedId(
                 Uri.parse("content://downloads/public_downloads"),
-                id.toLong());
+                id.toLong())
         path = getDataColumn(contentUri, null, null)
     } else if (uri.isMediaDocument()) {
-        var id = DocumentsContract.getDocumentId(uri)
-        var split = id.split(":")
-        var mediaType = split[0]
+        val id = DocumentsContract.getDocumentId(uri)
+        val split = id.split(":")
+        val mediaType = split[0]
         val selection = "_id"
         val selectionArg = arrayOf(split[1])
 
@@ -82,8 +82,8 @@ public fun Context.getFilePath(uri: Uri): String {
 
 @TargetApi(19)
 public fun ContentResolver.getRealPathFromUri(contentUri: Uri): String {
-    var proj = arrayOf(MediaStore.Audio.Media.DATA)
-    var cursor = query(contentUri, proj, null, null, null)
+    val proj = arrayOf(MediaStore.Audio.Media.DATA)
+    val cursor = query(contentUri, proj, null, null, null)
     try {
         var columnIndex = 0
         if (cursor != null) {
@@ -94,9 +94,7 @@ public fun ContentResolver.getRealPathFromUri(contentUri: Uri): String {
             return ""
         }
     } finally {
-        if (cursor != null) {
-            cursor.close()
-        }
+        cursor?.close()
 
     }
 }
@@ -106,7 +104,7 @@ public fun Context.getDataColumn(uri: Uri, selection: String?, selectionArg: Arr
     val column = "_data"
     val projection = arrayOf(column)
 
-    var cursor = contentResolver.query(uri, projection, selection, selectionArg, null)
+    val cursor = contentResolver.query(uri, projection, selection, selectionArg, null)
     try {
         if (cursor != null) {
             val columnIndex = cursor.getColumnIndexOrThrow(column)
@@ -114,8 +112,7 @@ public fun Context.getDataColumn(uri: Uri, selection: String?, selectionArg: Arr
             return cursor.getString(columnIndex)
         }
     } finally {
-        if (cursor != null)
-            cursor.close();
+        cursor?.close()
 
     }
     return ""

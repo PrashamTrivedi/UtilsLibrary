@@ -24,4 +24,7 @@ public fun Context.inflateLayout(layoutResId: Int, parent: ViewGroup?, attachToR
         LayoutInflater.from(this).inflate(layoutResId, parent, attachToRoot)
 
 
-
+public fun View.setVisible(condition: Boolean, shouldBeGoneWhenFalse: Boolean = true) {
+    val visibility = if (condition) View.VISIBLE else if (shouldBeGoneWhenFalse) View.GONE else View.INVISIBLE
+    setVisibility(visibility)
+}

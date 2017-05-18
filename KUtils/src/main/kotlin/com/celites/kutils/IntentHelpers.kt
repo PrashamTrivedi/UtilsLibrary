@@ -23,9 +23,9 @@ fun Context.email(email: String, subject: String = "", text: String = ""): Boole
     val intent = Intent(Intent.ACTION_SENDTO)
     intent.setData(Uri.parse("mailto:"))
     intent.putExtra(Intent.EXTRA_EMAIL, arrayOf(email))
-    if (subject.length > 0)
+    if (subject.isNotEmpty())
         intent.putExtra(Intent.EXTRA_SUBJECT, subject)
-    if (text.length > 0)
+    if (text.isNotEmpty())
         intent.putExtra(Intent.EXTRA_TEXT, text)
     if (isIntentAvailable(intent)) {
         startActivity(intent)
@@ -37,7 +37,7 @@ fun Context.email(email: String, subject: String = "", text: String = ""): Boole
 }
 
 public fun Context.makeCall(number: String): Boolean {
-    val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:$number"))
+    val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:$number"))
     if (isIntentAvailable(intent)) {
         startActivity(intent)
         return true

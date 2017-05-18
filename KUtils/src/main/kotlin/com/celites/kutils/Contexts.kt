@@ -19,6 +19,9 @@ public fun Context.isOnline(): Boolean {
     return connectedOrConnecting
 }
 
+public fun Context.getVersionName() = packageManager.getPackageInfo(packageName, 0).versionName
+public fun Context.getVersionCode() = packageManager.getPackageInfo(packageName, 0).versionCode
+
 /**
  * Checks if given intent is available or not
  */

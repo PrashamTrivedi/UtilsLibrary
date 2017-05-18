@@ -14,8 +14,17 @@
 
 package com.celites.kutils
 
-import android.app.Fragment
+import android.support.v4.app.Fragment
+import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.Toolbar
 
 public fun Fragment.allowOptionsMenu(hasOptionsMenu: Boolean = true) {
     setHasOptionsMenu(hasOptionsMenu)
+}
+
+public fun Fragment.setSupportActionbar(toolbar: Toolbar) {
+    val appcompatActivity = this.activity as AppCompatActivity?
+    appcompatActivity?.let {
+        it.setSupportActionBar(toolbar)
+    }
 }
