@@ -58,3 +58,14 @@ public fun String.failSafeSplit(delimeter: String = ","): List<String>? {
         return listOf(this)
     }
 }
+
+public fun String?.containsInArray(vararg names: String, ignoreCase: Boolean = true): Boolean {
+    this?.let {
+        it.replace(" ", "")
+        it.replace("\n", "")
+        it.replace(",\n", "")
+        it.replace(", ", "")
+        return names.any { this.equals(it, ignoreCase) }
+    }
+    return false
+}
