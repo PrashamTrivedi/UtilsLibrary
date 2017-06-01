@@ -16,18 +16,19 @@ import java.io.File
 /**
  * Created by Prasham on 1/2/2016.
  */
-public fun String.getExtension(): String {
-    if (isEmptyString()) {
-        return ""
-    } else {
-        val dot = lastIndexOf(".")
-        if (dot >= 0) {
-            return substring(dot)
-        } else {
+public val String.extension: String
+    get() {
+        if (isEmptyString()) {
             return ""
+        } else {
+            val dot = lastIndexOf(".")
+            if (dot >= 0) {
+                return substring(dot)
+            } else {
+                return ""
+            }
         }
     }
-}
 
 public fun String.isLocal() = !isEmptyString() && (startsWith("http://") || startsWith("https://"))
 

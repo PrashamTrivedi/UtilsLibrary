@@ -24,7 +24,5 @@ public fun Fragment.allowOptionsMenu(hasOptionsMenu: Boolean = true) {
 
 public fun Fragment.setSupportActionbar(toolbar: Toolbar) {
     val appcompatActivity = this.activity as AppCompatActivity?
-    appcompatActivity?.let {
-        it.setSupportActionBar(toolbar)
-    }
+    appcompatActivity?.setSupportActionBar(toolbar)
 }

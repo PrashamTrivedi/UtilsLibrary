@@ -4,23 +4,18 @@ package com.celites.kutils
  * Created by Prasham on 11/28/2015.
  */
 public fun CharSequence.isEmptyString(): Boolean {
-    return this.length == 0 || this.toString().equals("null", true);
+    return this.isEmpty() || this.toString().equals("null", true);
 }
 
 public fun CharSequence.isDigitOnly(): Boolean {
-    for (i in 0..length - 1) {
-        if (!Character.isDigit(this[i])) {
-            return false;
-        }
-    }
-    return true
+    return (0..length - 1).any { Character.isDigit(this[it]) }
 }
 
 public fun CharSequence.getNumber(): Int {
     if (isDigitOnly()) {
         return Integer.parseInt(toString())
     } else {
-        return 0;
+        return 0
     }
 }
 
@@ -34,7 +29,7 @@ public fun String.addToCommaSeparatedString(stringToAdd: String, allowDuplicates
         if (!allowDuplicates) {
             var isExists = false
             failSafeSplit?.forEach {
-                if (it.toLowerCase().equals(stringToAdd.toLowerCase())) {
+                if (it.toLowerCase() == stringToAdd.toLowerCase()) {
                     isExists = true
 
                 }
@@ -47,7 +42,7 @@ public fun String.addToCommaSeparatedString(stringToAdd: String, allowDuplicates
         }
         joinedString = mutableList.joinToString(",")
     }
-    return joinedString;
+    return joinedString
 
 }
 

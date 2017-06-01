@@ -13,13 +13,13 @@ import android.widget.ImageView
  */
 public fun Drawable.applyTinting(@ColorInt color: Int): Drawable {
     mutate()
-    var drawableToTint = DrawableCompat.wrap(this);
+    val drawableToTint = DrawableCompat.wrap(this);
     DrawableCompat.setTint(drawableToTint, color);
     return drawableToTint;
 }
 
 public fun Drawable.applyTinting(@ColorRes colorRes: Int, context: Context): Drawable {
-    var color = ContextCompat.getColor(context, colorRes);
+    val color = ContextCompat.getColor(context, colorRes);
     return applyTinting(color)
 }
 

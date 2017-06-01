@@ -73,7 +73,7 @@ public fun SharedPreferences.remove(key: String) {
 }
 
 
-public fun SharedPreferences.edit(func: SharedPreferences.Editor.() -> Unit) {
+inline public fun SharedPreferences.edit(func: SharedPreferences.Editor.() -> Unit) {
     val editor = edit()
     editor.func()
     editor.apply()
