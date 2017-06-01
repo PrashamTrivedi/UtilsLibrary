@@ -22,20 +22,24 @@ The Java version is no longer being maitained. All new development is being done
 And a lot more....
 
 ## How to use
-- Maven Repository (JitPack will always be available, JCenter coming soon).
+- Maven Repository (JitPack will always be available, JCenter is available from 0.5).
 
 - Gradle credentials 
     - For Android Plugin version 3.0 and newer
         ```goovy
-        implementation 'com.creativeelites:kutils:0.5@aar'
+        implementation 'com.creativeelites:kutils:{latest_version}@aar'
         ```
     - For older versions
         ```Groovy
-        compile 'com.creativeelites:kutils:0.5@aar'
+        compile 'com.creativeelites:kutils:{latest_version}@aar'
         ```
     
-## ChangeLog
-Coming Soon.
+    For latest version see below.
+    
+## Latest Version
+0.6
+
+View [Changelog](changelog.md)
 
 ## Future Upgrades 
 There are lot to be done in this area, version 0.5 is just starting of these things.
