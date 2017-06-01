@@ -1,6 +1,6 @@
-#ChangeLog
+# ChangeLog
 
-###0.6
+### 0.6
 - Deprecation
     -   `browse`, `email` functions are deprecated, please use `browseUrl` or `sendEmail` instead. These methods will be removed by 0.8
 
@@ -30,5 +30,5 @@
 - Many higherorder functions are available as inline (YAY for method counts)
 - Some code cleanup
 
-###0.5
+### 0.5
 - New version, added many functions
