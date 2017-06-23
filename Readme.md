@@ -46,7 +46,7 @@ There are lot to be done in this area, version 0.5 is just starting of these thi
 
 My plans for improvements are
 - [ ] Update documentations.
-- [ ] Use kotlin capability at its full. Some methods can be improved.
+- [ ] Use kotlin capability at its full. Some methods can be improved. - WIP
 - [ ] Use typealiases
 - [ ] Use kutils in Java, and retire devUtils forever.
 - [ ] New extension libraries for Design Support libraries

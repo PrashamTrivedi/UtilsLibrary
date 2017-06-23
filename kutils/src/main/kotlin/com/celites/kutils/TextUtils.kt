@@ -1,3 +1,4 @@
+@file:JvmName("TextUtils")
 package com.celites.kutils
 
 /**
@@ -19,7 +20,7 @@ public fun CharSequence.getNumber(): Int {
     }
 }
 
-public fun String.addToCommaSeparatedString(stringToAdd: String, allowDuplicates: Boolean = false): String {
+@JvmOverloads public fun String.addToCommaSeparatedString(stringToAdd: String, allowDuplicates: Boolean = false): String {
     var joinedString = ""
     if (this.isEmptyString()) {
         joinedString = stringToAdd
@@ -46,7 +47,7 @@ public fun String.addToCommaSeparatedString(stringToAdd: String, allowDuplicates
 
 }
 
-public fun String.failSafeSplit(delimeter: String = ","): List<String>? {
+@JvmOverloads public fun String.failSafeSplit(delimeter: String = ","): List<String>? {
     if (contains(delimeter)) {
         return this.split(delimeter)
     } else {
@@ -54,7 +55,7 @@ public fun String.failSafeSplit(delimeter: String = ","): List<String>? {
     }
 }
 
-public fun String?.containsInArray(vararg names: String, ignoreCase: Boolean = true): Boolean {
+@JvmOverloads public fun String?.containsInArray(vararg names: String, ignoreCase: Boolean = true): Boolean {
     this?.let {
         it.replace(" ", "")
         it.replace("\n", "")

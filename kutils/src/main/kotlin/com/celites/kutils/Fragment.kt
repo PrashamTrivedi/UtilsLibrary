@@ -1,3 +1,4 @@
+@file:JvmName("FragmentUtils")
 /*
  * Copyright (C) 2015 Mobs & Geeks
  *
@@ -18,7 +19,7 @@ import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 
-public fun Fragment.allowOptionsMenu(hasOptionsMenu: Boolean = true) {
+@JvmOverloads public fun Fragment.allowOptionsMenu(hasOptionsMenu: Boolean = true) {
     setHasOptionsMenu(hasOptionsMenu)
 }
 

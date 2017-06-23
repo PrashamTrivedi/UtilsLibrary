@@ -1,3 +1,4 @@
+@file:JvmName("ContextUtils")
 package com.celites.kutils
 
 import android.content.Context
@@ -12,7 +13,7 @@ import android.widget.Toast
  * checks if device is online or not
  */
 public fun Context.isOnline(): Boolean {
-    var cm = this.connectivityManager
+    val cm = this.connectivityManager
     var connectedOrConnecting = false
     connectedOrConnecting = cm.activeNetworkInfo.isConnectedOrConnecting
 
@@ -28,7 +29,7 @@ public val Context.versionCode: Int
 /**
  * Checks if given intent is available or not
  */
-public fun Context.isIntentAvailable(intent: Intent, matchConstant: Int = PackageManager.MATCH_DEFAULT_ONLY): Boolean {
+@JvmOverloads public fun Context.isIntentAvailable(intent: Intent, matchConstant: Int = PackageManager.MATCH_DEFAULT_ONLY): Boolean {
     val queryIntentActivities = packageManager.queryIntentActivities(intent, matchConstant)
     return queryIntentActivities.size > 0
 }
@@ -37,6 +38,6 @@ public fun Context.isIntentAvailable(intent: Intent, matchConstant: Int = Packag
 /**
  * Shows toast
  */
-public fun Context.toast(tag: String, message: String, duration: Int = Toast.LENGTH_LONG) {
+@JvmOverloads public fun Context.toast(tag: String, message: String, duration: Int = Toast.LENGTH_LONG) {
     Toast.makeText(this, "${tag} ${message}", duration).show()
 }

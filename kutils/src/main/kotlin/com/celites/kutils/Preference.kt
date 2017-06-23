@@ -1,3 +1,4 @@
+@file:JvmName("PreferenceUtils")
 /*
  * Copyright (C) 2015 Mobs & Geeks
  *
@@ -16,7 +17,6 @@ package com.celites.kutils
 
 import android.content.Context
 import android.content.SharedPreferences
-import android.os.Build
 import android.preference.PreferenceManager
 
 
@@ -26,15 +26,13 @@ public fun Context.getDefaultSharedPreferences(): SharedPreferences {
 
 public fun SharedPreferences.put(params: Array<out Pair<String,Any>>){
     val editor = edit()
-    params.forEach {
-        val key = it.first
-        val value = it.second
-        when(value){
-            is Int->putInt(key, value)
-            is Float->putFloat(key, value)
-            is Boolean->putBoolean(key, value)
-            is Long-> putLong(key, value)
-            is String-> putString(key, value)
+    for ((key, value) in params) {
+        when (value) {
+            is Int -> putInt(key, value)
+            is Float -> putFloat(key, value)
+            is Boolean -> putBoolean(key, value)
+            is Long -> putLong(key, value)
+            is String -> putString(key, value)
         }
     }
     editor.apply()
@@ -64,9 +62,9 @@ public fun SharedPreferences.putString(key: String, value: String?) {
     edit { putString(key, value) }
 }
 
-public fun SharedPreferences.putStringSet(key: String, values: Any) {
-    edit { putStringSet(key, values) }
-}
+//public fun SharedPreferences.putStringSet(key: String, values: Any) {
+//    edit { putStringSet(key, values) }
+//}
 
 public fun SharedPreferences.remove(key: String) {
     edit { remove(key) }
@@ -86,7 +84,6 @@ inline public fun SharedPreferences.edit(func: SharedPreferences.Editor.() -> Un
  */
 private var SharedPreferences.bulkEditor: SharedPreferences.Editor?
     get() = this.bulkEditor
-
     set(editor: SharedPreferences.Editor?) {
         this.bulkEditor = editor
     }
@@ -101,9 +98,5 @@ private fun SharedPreferences.getEditor(): SharedPreferences.Editor {
 }
 
 private fun SharedPreferences.apply(editor: SharedPreferences.Editor) {
-    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.GINGERBREAD) {
-        editor.commit()
-    } else {
-        editor.apply()
-    }
+    editor.apply()
 }

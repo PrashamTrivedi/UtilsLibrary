@@ -1,3 +1,4 @@
+@file:JvmName("FileTypeUtils")
 package com.celites.kutils
 
 import android.support.v4.provider.DocumentFile

@@ -1,3 +1,4 @@
+@file:JvmName("DrawableUtils")
 package com.celites.kutils
 
 import android.content.Context

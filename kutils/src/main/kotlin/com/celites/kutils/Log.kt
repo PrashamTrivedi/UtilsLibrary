@@ -1,3 +1,4 @@
+@file:JvmName("LogUtils")
 /*
  * Copyright (C) 2015 Mobs & Geeks
  *

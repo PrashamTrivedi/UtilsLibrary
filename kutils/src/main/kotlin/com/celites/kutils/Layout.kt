@@ -1,3 +1,4 @@
+@file:JvmName("LayoutUtils")
 /*
  * Copyright (C) 2015 Mobs & Geeks
  *
@@ -20,11 +21,5 @@ import android.view.View
 import android.view.ViewGroup
 
 
-public fun Context.inflateLayout(layoutResId: Int, parent: ViewGroup?, attachToRoot: Boolean = false): View =
+@JvmOverloads public fun Context.inflateLayout(layoutResId: Int, parent: ViewGroup?, attachToRoot: Boolean = false): View =
         LayoutInflater.from(this).inflate(layoutResId, parent, attachToRoot)
-
-
-public fun View.setVisible(condition: Boolean, shouldBeGoneWhenFalse: Boolean = true) {
-    val visibility = if (condition) View.VISIBLE else if (shouldBeGoneWhenFalse) View.GONE else View.INVISIBLE
-    setVisibility(visibility)
-}

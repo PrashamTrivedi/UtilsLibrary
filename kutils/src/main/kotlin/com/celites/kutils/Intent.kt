@@ -1,3 +1,4 @@
+@file:JvmName("IntentUtils")
 /*
  * Copyright (C) 2015 Mobs & Geeks
  *
@@ -24,7 +25,7 @@ import android.support.v4.app.Fragment
 
 
 public fun Context.flags(flag: Int, vararg flags: Int): Int {
-    var orFlags = flag;
+    var orFlags = flag
     for (i in flags) {
         orFlags = orFlags or i
     }

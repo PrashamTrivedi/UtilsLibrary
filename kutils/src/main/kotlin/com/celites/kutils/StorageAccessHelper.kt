@@ -1,3 +1,4 @@
+@file:JvmName("StorageAccessHelper")
 package com.celites.kutils
 
 /**

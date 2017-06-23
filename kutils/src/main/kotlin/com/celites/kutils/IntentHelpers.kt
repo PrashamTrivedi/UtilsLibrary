@@ -1,3 +1,4 @@
+@file:JvmName("CommonIntents")
 package com.celites.kutils
 
 import android.content.Context
@@ -29,7 +30,7 @@ fun Context.email(email: String, subject: String = "", text: String = ""): Boole
 
 }
 
-public fun Context.sendEmail(email: String, subject: String, text: String): Boolean {
+@JvmOverloads public fun Context.sendEmail(email: String, subject: String = "", text: String = ""): Boolean {
     val intent = Intent(Intent.ACTION_SENDTO)
     intent.setData(Uri.parse("mailto:"))
     intent.putExtra(Intent.EXTRA_EMAIL, arrayOf(email))

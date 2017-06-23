@@ -1,3 +1,5 @@
+@file:JvmName("BundleUtils")
+
 /*
  * Copyright (C) 2015 Mobs & Geeks
  *
@@ -16,15 +18,12 @@ package com.celites.kutils
 
 import android.os.Bundle
 import android.os.Parcelable
-import android.util.Pair
 
 /**
  * Add values to bundle
  */
 public fun Bundle.put(params: Array<out Pair<String, Any>>): Bundle {
-    params.forEach {
-        val key = it.first
-        val value = it.second
+    for ((key, value) in params) {
         when (value) {
             is Int -> putInt(key, value)
             is IntArray -> putIntArray(key, value)
@@ -58,8 +57,8 @@ public fun Bundle.put(params: Array<out Pair<String, Any>>): Bundle {
 /**
  * Extract bundle and returs string
  */
-public fun Bundle.extractBundle(keyValSeparator: String = ": ", newSetSeparator: String = "\n"): String {
-    var keyvals: StringBuilder = StringBuilder();
+@JvmOverloads public fun Bundle.extractBundle(keyValSeparator: String = ": ", newSetSeparator: String = "\n"): String {
+    var keyvals: StringBuilder = StringBuilder()
     keySet().forEach { keyvals.append(it).append(keyValSeparator).append(getString(it)).append(newSetSeparator) }
     return keyvals.toString();
 }

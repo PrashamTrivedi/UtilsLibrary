@@ -1,5 +1,13 @@
 # ChangeLog
 
+### 0.7
+- Worked in Java interoperability
+- All services are now extension properties
+- Code cleanup
+- Added methods from Anko
+
+
+
 ### 0.6
 - Deprecation
     -   `browse`, `email` functions are deprecated, please use `browseUrl` or `sendEmail` instead. These methods will be removed by 0.8
