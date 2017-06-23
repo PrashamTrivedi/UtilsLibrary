@@ -11,6 +11,8 @@ The Java version is no longer being maitained. All new development is being done
 
 ### Kotlin
 - Originally started as fork of [Kaffiene](https://github.com/ragunathjawahar/kaffeine) thus inheriting it's code and updating as kotlin evolves.
+- Also taken some code and inspiration from [Anko](https://github.com/Kotlin/anko). 
+
     
 - Bundles: Putting data with Pair, Extracting the bundle for debug
 - Context: All functions from Java library, added accessing resources (Compat version) and system service (With cast) as extension function 
