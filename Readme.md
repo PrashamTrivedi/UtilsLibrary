@@ -39,7 +39,7 @@ And a lot more....
     For latest version see below.
     
 ## Latest Version
-0.6
+0.7
 
 View [Changelog](changelog.md)
 
@@ -48,9 +48,9 @@ There are lot to be done in this area, version 0.5 is just starting of these thi
 
 My plans for improvements are
 - [ ] Update documentations.
-- [ ] Use kotlin capability at its full. Some methods can be improved. - WIP
+- [x] Use kotlin capability at its full. Some methods can be improved.
 - [ ] Use typealiases
-- [ ] Use kutils in Java, and retire devUtils forever.
+- [x] Use kutils in Java, and retire devUtils forever.
 - [ ] New extension libraries for Design Support libraries
 - [ ] Android Architecture components support.
 
