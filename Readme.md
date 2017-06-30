@@ -39,7 +39,7 @@ And a lot more....
     For latest version see below.
     
 ## Latest Version
-0.7
+0.7.1
 
 View [Changelog](changelog.md)
 

@@ -1,6 +1,7 @@
 # ChangeLog
 
-### 0.7
+### 0.7.1
+- Version 0.7.1 fixes a small publishing issue
 - Worked in Java interoperability
 - All services are now extension properties
 - Code cleanup
