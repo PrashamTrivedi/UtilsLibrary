@@ -7,8 +7,8 @@ import android.support.v7.app.AlertDialog
 /**
  * Created by Prash on 19-05-2017.
  */
-@JvmOverloads inline public fun Context.showDialog(cancelable: Boolean = false, cancelableTouchOutside: Boolean = false, builderFunction: AlertDialog.Builder.() -> Any) {
-    val builder = AlertDialog.Builder(this)
+@JvmOverloads inline public fun Context.showDialog(themeId: Int = 0, cancelable: Boolean = false, cancelableTouchOutside: Boolean = false, builderFunction: AlertDialog.Builder.() -> Any) {
+    val builder = AlertDialog.Builder(this, themeId)
     builder.builderFunction()
     val dialog = builder.create();
 

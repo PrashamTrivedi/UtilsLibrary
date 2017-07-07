@@ -1,5 +1,8 @@
 # ChangeLog
 
+### 0.7.2
+- AlertDialog can accept optional `themeId` parameter to add themes for dialog
+
 ### 0.7.1
 - Version 0.7.1 fixes a small publishing issue
 - Worked in Java interoperability
