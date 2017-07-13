@@ -1,5 +1,8 @@
 # ChangeLog
 
+### 0.7.3
+- Added startActivity methods as Fragment's extensions
+
 ### 0.7.2
 - AlertDialog can accept optional `themeId` parameter to add themes for dialog
 
