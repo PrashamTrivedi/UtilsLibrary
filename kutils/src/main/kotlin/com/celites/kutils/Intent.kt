@@ -90,10 +90,21 @@ inline fun <reified T : Service> Context.startService(extras: Bundle,
 inline fun <reified T : Activity> Fragment.startActivity(): Unit = this.startActivity(
 		getIntent<T>())
 
+inline fun <reified T : Activity> Fragment.startActivityForResult(
+		requestCode: Int): Unit = this.startActivity(getIntent<T>())
+
 inline fun <reified T : Activity> Fragment.startActivity(flags: Int): Unit = this.startActivity(
 		getIntent<T>(flags = flags))
 
+inline fun <reified T : Activity> Fragment.startActivityForResult(requestCode: Int,
+																  flags: Int): Unit = this.startActivity(
+		getIntent<T>(flags = flags))
+
 inline fun <reified T : Activity> Fragment.startActivity(extras: Bundle): Unit = this.startActivity(
+		getIntent<T>(bundle = extras))
+
+inline fun <reified T : Activity> Fragment.startActivityForResult(requestCode: Int,
+																  extras: Bundle): Unit = this.startActivity(
 		getIntent<T>(bundle = extras))
 
 
