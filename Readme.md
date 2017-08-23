@@ -2,7 +2,7 @@
 This is the library I have developed as Utility functions in Java, and started as Mix and match of Utility functions + Extension functions in Kotlin. Traditionally develoed in Java, now entirely being developed in Kotlin.
 
 ## Features
-### Java 
+### Java (Deprecated)
 - String: Null checks, numeric conversion, Safe split and Joining with keeping duplicates in mind.
 - Arrays: Single method to check null or empty array.
 - Platform Dependent things: Checking Online/Offline, Checking intent availiblity and Drawable Tinting 
@@ -39,7 +39,7 @@ And a lot more....
     For latest version see below.
     
 ## Latest Version
-0.7.2
+0.8
 
 View [Changelog](changelog.md)
 
@@ -49,7 +49,7 @@ There are lot to be done in this area, version 0.5 is just starting of these thi
 My plans for improvements are
 - [ ] Update documentations.
 - [x] Use kotlin capability at its full. Some methods can be improved.
-- [ ] Use typealiases
+- [x] Use typealiases
 - [x] Use kutils in Java, and retire devUtils forever.
 - [ ] New extension libraries for Design Support libraries
 - [ ] Android Architecture components support.

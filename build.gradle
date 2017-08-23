@@ -1,25 +1,25 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
+    ext.kotlin_version = '1.1.4'
     repositories {
         jcenter()
-        maven{
-            url 'https://maven.google.com'
-        }
+        google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.0-alpha6'
+        classpath 'com.android.tools.build:gradle:3.0.0-beta2'
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
 allprojects {
     repositories {
         jcenter()
+        google()
     }
-    tasks.withType(Javadoc) {
-        options.addStringOption('doclint:none', '-quiet')
-        options.addStringOption('encoding', 'UTF-8')
+    tasks.withType(Javadoc).all {
+        enabled = false
     }
 }
