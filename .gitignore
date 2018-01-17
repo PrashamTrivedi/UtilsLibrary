@@ -1,9 +1,5 @@
-
-/local.properties
 /.idea/workspace.xml
 /.idea/libraries
-/.idea
-/gradle
 gradlew
 gradlew.bat
 .DS_Store
@@ -11,6 +7,16 @@ gradlew.bat
 build
 *.iml
 local.properties
-
-/.idea
-/gradle/wrapper/gradle-wrapper.jar
+# IDEA/Android Studio ignores
+*.ipr
+*.iws
+# IDEA/Android Studio Ignore exceptions
+!/.idea/vcs.xml
+!/.idea/fileTemplates/
+!/.idea/inspectionProfiles/
+!/.idea/scopes/
+!/.idea/codeStyleSettings.xml
+!/.idea/encodings.xml
+!/.idea/copyright/
+!/.idea/compiler.xml
+.gradle/
