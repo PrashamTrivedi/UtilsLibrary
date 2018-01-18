@@ -3,7 +3,6 @@
 gradlew
 gradlew.bat
 .DS_Store
-/build
 build
 *.iml
 local.properties
@@ -16,7 +15,7 @@ local.properties
 !/.idea/inspectionProfiles/
 !/.idea/scopes/
 !/.idea/codeStyleSettings.xml
-!/.idea/encodings.xml
+!**/.idea/encodings.xml
 !/.idea/copyright/
-!/.idea/compiler.xml
+!**/.idea/compiler.xml
 .gradle/

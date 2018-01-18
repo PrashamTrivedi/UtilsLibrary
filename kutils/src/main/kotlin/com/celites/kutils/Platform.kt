@@ -18,10 +18,10 @@ package com.celites.kutils
 import android.os.Build
 
 
-public val Any.platformApi: Int
+val platformApi: Int
     get() = Build.VERSION.SDK_INT
 
-public fun Any.platformIsOlderThan(version: Int): Boolean = Build.VERSION.SDK_INT < version
+fun platformIsOlderThan(version: Int): Boolean = Build.VERSION.SDK_INT < version
 
 
-public fun Any.platformIsGreaterThan(version: Int): Boolean = Build.VERSION.SDK_INT >= version
+fun platformIsGreaterThan(version: Int): Boolean = Build.VERSION.SDK_INT >= version

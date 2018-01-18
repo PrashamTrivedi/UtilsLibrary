@@ -10,21 +10,22 @@ import android.net.Uri
  * Created by Prasham on 2/13/2016.
  */
 
-public fun Context.browseUrl(url: String): Boolean {
+fun Context.browseUrl(url: String): Boolean {
 	val intent = Intent(Intent.ACTION_VIEW)
-	intent.setData(Uri.parse(url))
-	if (isIntentAvailable(intent)) {
+	intent.data = Uri.parse(url)
+	return if (isIntentAvailable(intent)) {
 		startActivity(intent)
-		return true
+		true
 	} else {
-		return false
+		false
 	}
 }
 
 
-@JvmOverloads public fun Context.sendEmail(email: String, subject: String = "", text: String = "", attachment: Uri? = null): Boolean {
+@JvmOverloads
+fun Context.sendEmail(email: String, subject: String = "", text: String = "", attachment: Uri? = null): Boolean {
 	val intent = Intent(Intent.ACTION_SENDTO)
-	intent.setData(Uri.parse("mailto:"))
+	intent.data = Uri.parse("mailto:")
 	intent.putExtra(Intent.EXTRA_EMAIL, arrayOf(email))
 	if (subject.isNotEmpty()) {
 		intent.putExtra(Intent.EXTRA_SUBJECT, subject)
@@ -43,7 +44,7 @@ public fun Context.browseUrl(url: String): Boolean {
 	}
 }
 
-public fun Context.makeCall(number: String): Boolean {
+fun Context.makeCall(number: String): Boolean {
 	val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:$number"))
 	return if (isIntentAvailable(intent)) {
 		startActivity(intent)

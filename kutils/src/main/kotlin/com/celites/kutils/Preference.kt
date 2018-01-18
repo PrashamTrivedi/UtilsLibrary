@@ -20,11 +20,11 @@ import android.content.SharedPreferences
 import android.preference.PreferenceManager
 
 
-public fun Context.getDefaultSharedPreferences(): SharedPreferences {
+fun Context.getDefaultSharedPreferences(): SharedPreferences {
     return PreferenceManager.getDefaultSharedPreferences(this)
 }
 
-public fun SharedPreferences.put(params: Array<out Pair<String,Any>>){
+fun SharedPreferences.put(params: Array<out Pair<String, Any>>) {
     val editor = edit()
     for ((key, value) in params) {
         when (value) {
@@ -38,27 +38,27 @@ public fun SharedPreferences.put(params: Array<out Pair<String,Any>>){
     editor.apply()
 }
 
-public fun SharedPreferences.clear() {
+fun SharedPreferences.clear() {
     edit { clear() }
 }
 
-public fun SharedPreferences.putBoolean(key: String, value: Boolean) {
+fun SharedPreferences.putBoolean(key: String, value: Boolean) {
     edit { putBoolean(key, value) }
 }
 
-public fun SharedPreferences.putFloat(key: String, value: Float) {
+fun SharedPreferences.putFloat(key: String, value: Float) {
     edit { putFloat(key, value) }
 }
 
-public fun SharedPreferences.putInt(key: String, value: Int) {
+fun SharedPreferences.putInt(key: String, value: Int) {
     edit { putInt(key, value) }
 }
 
-public fun SharedPreferences.putLong(key: String, value: Long) {
+fun SharedPreferences.putLong(key: String, value: Long) {
     edit { putLong(key, value) }
 }
 
-public fun SharedPreferences.putString(key: String, value: String?) {
+fun SharedPreferences.putString(key: String, value: String?) {
     edit { putString(key, value) }
 }
 
@@ -66,27 +66,16 @@ public fun SharedPreferences.putString(key: String, value: String?) {
 //    edit { putStringSet(key, values) }
 //}
 
-public fun SharedPreferences.remove(key: String) {
+fun SharedPreferences.remove(key: String) {
     edit { remove(key) }
 }
 
 
-inline public fun SharedPreferences.edit(func: SharedPreferences.Editor.() -> Unit) {
+inline fun SharedPreferences.edit(func: SharedPreferences.Editor.() -> Unit) {
     val editor = edit()
     editor.func()
     editor.apply()
 }
-
-/*
- * -----------------------------------------------------------------------------
- *  Private properties
- * -----------------------------------------------------------------------------
- */
-private var SharedPreferences.bulkEditor: SharedPreferences.Editor?
-    get() = this.bulkEditor
-    set(editor: SharedPreferences.Editor?) {
-        this.bulkEditor = editor
-    }
 
 /*
  * -----------------------------------------------------------------------------

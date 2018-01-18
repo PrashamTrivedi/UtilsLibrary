@@ -22,7 +22,7 @@ import android.os.Parcelable
 /**
  * Add values to bundle
  */
-public fun Bundle.put(params: Array<out Pair<String, Any>>): Bundle {
+fun Bundle.put(params: Array<out Pair<String, Any>>): Bundle {
     for ((key, value) in params) {
         when (value) {
             is Int -> putInt(key, value)
@@ -57,9 +57,20 @@ public fun Bundle.put(params: Array<out Pair<String, Any>>): Bundle {
 /**
  * Extract bundle and returs string
  */
-@JvmOverloads public fun Bundle.extractBundle(keyValSeparator: String = ": ", newSetSeparator: String = "\n"): String {
-    var keyvals: StringBuilder = StringBuilder()
-    keySet().forEach { keyvals.append(it).append(keyValSeparator).append(getString(it)).append(newSetSeparator) }
-    return keyvals.toString();
+@JvmOverloads
+fun Bundle.extractBundle(keyValSeparator: String = ": ", newSetSeparator: String = "\n"): String {
+    val keyvals = StringBuilder()
+    keySet().forEach { keyvals.append(it).append(keyValSeparator).append(get(it).toString()).append(newSetSeparator) }
+    return keyvals.toString()
 }
 
+/**
+ * Creates bundle to map
+ */
+fun Bundle.toMap(): Map<String, String> {
+    val map = HashMap<String, String>()
+    for (key in keySet()) {
+        map.put(key, get(key).toString())
+    }
+    return map
+}

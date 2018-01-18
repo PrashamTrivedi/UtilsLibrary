@@ -1,27 +1,33 @@
 @file:JvmName("TextUtils")
+
 package com.celites.kutils
+
+import java.text.ParseException
+import java.text.SimpleDateFormat
+import java.util.*
 
 /**
  * Created by Prasham on 11/28/2015.
  */
-public fun CharSequence.isEmptyString(): Boolean {
-    return this.isEmpty() || this.toString().equals("null", true);
+fun CharSequence.isEmptyString(): Boolean {
+    return this.isEmpty() || this.toString().equals("null", true)
 }
 
-public fun CharSequence.isDigitOnly(): Boolean {
-    return (0..length - 1).any { Character.isDigit(this[it]) }
+fun CharSequence.isDigitOnly(): Boolean {
+    return (0 until length).any { Character.isDigit(this[it]) }
 }
 
-public fun CharSequence.getNumber(): Int {
-    if (isDigitOnly()) {
-        return Integer.parseInt(toString())
+fun CharSequence.getNumber(): Int {
+    return if (isDigitOnly()) {
+        Integer.parseInt(toString())
     } else {
-        return 0
+        0
     }
 }
 
-@JvmOverloads public fun String.addToCommaSeparatedString(stringToAdd: String, allowDuplicates: Boolean = false): String {
-    var joinedString = ""
+@JvmOverloads
+fun String.addToCommaSeparatedString(stringToAdd: String, allowDuplicates: Boolean = false): String {
+    val joinedString: String
     if (this.isEmptyString()) {
         joinedString = stringToAdd
     } else {
@@ -47,15 +53,17 @@ public fun CharSequence.getNumber(): Int {
 
 }
 
-@JvmOverloads public fun String.failSafeSplit(delimeter: String = ","): List<String>? {
-    if (contains(delimeter)) {
-        return this.split(delimeter)
+@JvmOverloads
+fun String.failSafeSplit(delimeter: String = ","): List<String>? {
+    return if (contains(delimeter)) {
+        this.split(delimeter)
     } else {
-        return listOf(this)
+        listOf(this)
     }
 }
 
-@JvmOverloads public fun String?.containsInArray(vararg names: String, ignoreCase: Boolean = true): Boolean {
+@JvmOverloads
+fun String?.containsInArray(vararg names: String, ignoreCase: Boolean = true): Boolean {
     this?.let {
         it.replace(" ", "")
         it.replace("\n", "")
@@ -65,3 +73,75 @@ public fun CharSequence.getNumber(): Int {
     }
     return false
 }
+
+fun String.convertDateFormat(fromFormat: String, toFormat: String): String {
+    return if (this.isDateStringProperlyFormatted(fromFormat)) {
+        try {
+            this toDate fromFormat asString toFormat
+        } catch (e: Exception) {
+            e.printStackTrace()
+            this
+        }
+
+    } else {
+        this
+    }
+}
+
+fun String.isDateStringProperlyFormatted(dateFormat: String): Boolean {
+    var isProperlyFormatted = false
+    val format = SimpleDateFormat(dateFormat, Locale.getDefault())
+    //SetLenient means dateString will be checked strictly with dateFormat. Otherwise it will format as per wish.
+    format.isLenient = false
+    try {
+        format.parse(this)
+        isProperlyFormatted = true
+    } catch (e: ParseException) {
+        //exception means dateString is not parsable by dateFormat. Thus dateIsProperlyFormatted.
+    }
+
+    return isProperlyFormatted
+}
+
+infix fun Date.asString(parseFormat: String): String {
+    return try {
+        SimpleDateFormat(parseFormat, Locale.getDefault()).format(this)
+    } catch (e: Exception) {
+        e.printStackTrace()
+        ""
+    }
+
+}
+
+infix fun String.toDate(currentFormat: String): Date {
+    return try {
+        if (this.isEmptyString()) {
+            Date()
+        } else {
+            SimpleDateFormat(currentFormat, Locale.getDefault()).parse(this)
+        }
+    } catch (e: Exception) {
+        e.printStackTrace()
+        //If It can not be parsed, return today's date instead of null. So return value of this method does not create null pointer exception.
+        Date()
+    }
+}
+
+fun CharSequence.getDouble(): Double {
+    return try {
+        if (isDigitOnly()) {
+            if (contains(".")) {
+                toString().toDouble()
+            } else {
+                getNumber().toDouble()
+            }
+        } else {
+            0.0
+        }
+    } catch (e: Exception) {
+        0.0
+    }
+}
+
+
+infix fun String?.useIfEmpty(otherString: String?) = if ((this ?: "").isEmptyString()) otherString ?: "" else (this ?: "")

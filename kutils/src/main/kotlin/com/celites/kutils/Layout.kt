@@ -21,5 +21,6 @@ import android.view.View
 import android.view.ViewGroup
 
 
-@JvmOverloads public fun Context.inflateLayout(layoutResId: Int, parent: ViewGroup?, attachToRoot: Boolean = false): View =
+@JvmOverloads
+fun Context.inflateLayout(layoutResId: Int, parent: ViewGroup?, attachToRoot: Boolean = false): View =
         LayoutInflater.from(this).inflate(layoutResId, parent, attachToRoot)

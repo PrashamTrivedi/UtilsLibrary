@@ -21,55 +21,55 @@ import android.support.v4.content.ContextCompat
 import android.util.DisplayMetrics
 
 
-public fun Context.getAnimation(animResId: Int) =
+fun Context.getAnimation(animResId: Int) =
         resources.getAnimation(animResId)
 
-public fun Context.getBoolean(booleanResId: Int) =
+fun Context.getBoolean(booleanResId: Int) =
         resources.getBoolean(booleanResId)
 
-public fun Context.getColor(colorResId: Int) =
+fun Context.getColorCompat(colorResId: Int) =
         ContextCompat.getColor(this, colorResId)
 
-public fun Context.getColorStateList(stateListResId: Int) =
+fun Context.getColorStateListCompat(stateListResId: Int) =
         ContextCompat.getColorStateList(this, stateListResId)
 
-public fun Context.getDimension(dimenResId: Int) =
+fun Context.getDimension(dimenResId: Int) =
         resources.getDimension(dimenResId)
 
-public val Context.displayMetrics: DisplayMetrics
+val Context.displayMetrics: DisplayMetrics
     get() =
-    resources.getDisplayMetrics()
+        resources.displayMetrics
 
-public fun Context.getIntArray(id: Int) =
+fun Context.getIntArray(id: Int) =
         resources.getIntArray(id)
 
-public fun Context.getInteger(id: Int) =
+fun Context.getInteger(id: Int) =
         resources.getInteger(id)
 
-public fun Context.getLayout(id: Int) =
+fun Context.getLayout(id: Int) =
         resources.getLayout(id)
 
-public fun Context.getMovie(id: Int) =
+fun Context.getMovie(id: Int) =
         resources.getMovie(id)
 
-public fun Context.getQuantityString(id: Int, quantity: Int) =
+fun Context.getQuantityString(id: Int, quantity: Int) =
         resources.getQuantityString(id, quantity)
 
-public fun Context.getQuantityString(id: Int, quantity: Int, vararg formatArgs: Any) =
+fun Context.getQuantityString(id: Int, quantity: Int, vararg formatArgs: Any) =
         resources.getQuantityString(id, quantity, formatArgs)
 
-public fun Context.getQuantityText(id: Int, quantity: Int) =
+fun Context.getQuantityText(id: Int, quantity: Int) =
         resources.getQuantityText(id, quantity)
 
-public fun Context.getStringArray(arrayResId: Int) =
+fun Context.getStringArray(arrayResId: Int) =
         resources.getStringArray(arrayResId)
 
-public fun Context.typefaceFromAssets(assetPathResId: Int) =
+fun Context.typefaceFromAssets(assetPathResId: Int) =
         typefaceFromAssets(getString(assetPathResId))
 
-public fun Context.typefaceFromAssets(assetPath: String): Typeface =
+fun Context.typefaceFromAssets(assetPath: String): Typeface =
         Typeface.createFromAsset(getAssets(), assetPath)
 
-public fun Context.getDrawable(id: Int) =
+fun Context.getDrawableCompat(id: Int) =
         ContextCompat.getDrawable(this, id)
 

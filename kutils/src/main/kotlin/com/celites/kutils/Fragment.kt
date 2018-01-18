@@ -1,4 +1,5 @@
 @file:JvmName("FragmentUtils")
+
 /*
  * Copyright (C) 2015 Mobs & Geeks
  *
@@ -16,14 +17,26 @@
 package com.celites.kutils
 
 import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentActivity
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 
-@JvmOverloads public fun Fragment.allowOptionsMenu(hasOptionsMenu: Boolean = true) {
+@JvmOverloads
+fun Fragment.allowOptionsMenu(hasOptionsMenu: Boolean = true) {
     setHasOptionsMenu(hasOptionsMenu)
 }
 
-public fun Fragment.setSupportActionbar(toolbar: Toolbar) {
+fun Fragment.setSupportActionbar(toolbar: Toolbar) {
     val appcompatActivity = this.activity as AppCompatActivity?
     appcompatActivity?.setSupportActionBar(toolbar)
+}
+
+@JvmOverloads
+fun FragmentActivity.goBackToFragment(name: String, flag: Int = 0) {
+    supportFragmentManager.popBackStackImmediate(name, flag)
+}
+
+@JvmOverloads
+fun Fragment.goBackToFragment(name: String, flag: Int = 0) {
+    fragmentManager?.popBackStackImmediate(name, flag)
 }

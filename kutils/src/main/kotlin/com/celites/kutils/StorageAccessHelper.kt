@@ -17,34 +17,34 @@ import java.io.File
 /**
  * Created by Prasham on 1/2/2016.
  */
-public val String.extension: String
+val String.extension: String
     get() {
-        if (isEmptyString()) {
-            return ""
+        return if (isEmptyString()) {
+            ""
         } else {
             val dot = lastIndexOf(".")
             if (dot >= 0) {
-                return substring(dot)
+                substring(dot)
             } else {
-                return ""
+                ""
             }
         }
     }
 
-public fun String.isLocal() = !isEmptyString() && (startsWith("http://") || startsWith("https://"))
+fun String.isLocal() = !isEmptyString() && (startsWith("http://") || startsWith("https://"))
 
-public fun Uri.isMediaUri() = authority.equals("media", true)
+fun Uri.isMediaUri() = authority.equals("media", true)
 
-public fun File.getUri() = Uri.fromFile(this)
+fun File.getUri() = Uri.fromFile(this)
 
-public fun Uri.isExternalStorageDocument() = authority == "com.android.externalstorage.documents"
+fun Uri.isExternalStorageDocument() = authority == "com.android.externalstorage.documents"
 
-public fun Uri.isDownloadDocuments() = authority == "com.android.providers.downloads.documents"
+fun Uri.isDownloadDocuments() = authority == "com.android.providers.downloads.documents"
 
-public fun Uri.isMediaDocument() = authority == "com.android.providers.media.documents"
+fun Uri.isMediaDocument() = authority == "com.android.providers.media.documents"
 
 @TargetApi(19)
-public fun Context.getFilePath(uri: Uri): String {
+fun Context.getFilePath(uri: Uri): String {
     var path = ""
     if (uri.isExternalStorageDocument()) {
         val docId = DocumentsContract.getDocumentId(uri)
@@ -83,39 +83,33 @@ public fun Context.getFilePath(uri: Uri): String {
 }
 
 @TargetApi(19)
-public fun ContentResolver.getRealPathFromUri(contentUri: Uri): String {
+fun ContentResolver.getRealPathFromUri(contentUri: Uri): String {
     val proj = arrayOf(MediaStore.Audio.Media.DATA)
     val cursor = query(contentUri, proj, null, null, null)
-    try {
-        var columnIndex = 0
-        if (cursor != null) {
-            columnIndex = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DATA)
-            cursor.moveToFirst()
-            return cursor.getString(columnIndex)
+    cursor.use {
+        val columnIndex: Int
+        return if (it != null) {
+            columnIndex = it.getColumnIndexOrThrow(MediaStore.Audio.Media.DATA)
+            it.moveToFirst()
+            it.getString(columnIndex)
         } else {
-            return ""
+            ""
         }
-    } finally {
-        cursor?.close()
-
     }
 }
 
 @TargetApi(19)
-public fun Context.getDataColumn(uri: Uri, selection: String?, selectionArg: Array<String>?): String {
+fun Context.getDataColumn(uri: Uri, selection: String?, selectionArg: Array<String>?): String {
     val column = "_data"
     val projection = arrayOf(column)
 
     val cursor = contentResolver.query(uri, projection, selection, selectionArg, null)
-    try {
-        if (cursor != null) {
-            val columnIndex = cursor.getColumnIndexOrThrow(column)
-            cursor.moveToFirst()
-            return cursor.getString(columnIndex)
+    cursor.use {
+        if (it != null) {
+            val columnIndex = it.getColumnIndexOrThrow(column)
+            it.moveToFirst()
+            return it.getString(columnIndex)
         }
-    } finally {
-        cursor?.close()
-
     }
     return ""
 }

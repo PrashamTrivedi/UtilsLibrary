@@ -4,8 +4,11 @@ package com.celites.kutils
 
 import android.graphics.drawable.Drawable
 import android.os.Build
+import android.support.annotation.MenuRes
 import android.support.annotation.RequiresApi
+import android.support.v7.widget.PopupMenu
 import android.util.TypedValue
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -96,7 +99,23 @@ var ImageView.image: Drawable?
     inline set(value) = setImageDrawable(value)
 
 
-@JvmOverloads public fun View.setVisible(condition: Boolean, shouldBeGoneWhenFalse: Boolean = true) {
+@JvmOverloads
+fun View.setVisible(condition: Boolean, shouldBeGoneWhenFalse: Boolean = true) {
     val visibility = if (condition) View.VISIBLE else if (shouldBeGoneWhenFalse) View.GONE else View.INVISIBLE
     setVisibility(visibility)
+}
+
+fun View.hideKeyboard() {
+    val imm = context.inputMethodManager
+    imm?.hideSoftInputFromWindow(windowToken, 0)
+}
+
+inline fun View.showPopupMenu(@MenuRes menuId: Int, crossinline menuItemClickListener: (MenuItem) -> Unit) {
+    val popupMenu = PopupMenu(context, this)
+    popupMenu.menuInflater.inflate(menuId, popupMenu.menu)
+    popupMenu.setOnMenuItemClickListener {
+        menuItemClickListener(it)
+        true
+    }
+    popupMenu.show()
 }
