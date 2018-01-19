@@ -1,0 +1,23 @@
+language: android
+android:
+  components:
+    - tools # to get the new `repository-11.xml`
+    - platform-tools
+    - tools # see https://github.com/travis-ci/travis-ci/issues/6040#issuecomment-219367943)
+
+    # Build tools latest
+    - build-tools-27.0.3
+
+    # Latest os
+    - android-27
+
+#deploy:
+#  provider: bintray
+#  file: "Path to a descriptor file, containing information for the Bintray upload"
+#  user: "Bintray user"
+#  key: "Bintray API key"
+jdk:
+  - oraclejdk8
+
+
+after_failure: "cat $TRAVIS_BUILD_DIR/app/build/outputs/lint-results-debug.xml"

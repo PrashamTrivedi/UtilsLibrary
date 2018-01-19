@@ -1,7 +1,5 @@
 /.idea/workspace.xml
 /.idea/libraries
-gradlew
-gradlew.bat
 .DS_Store
 build
 *.iml
