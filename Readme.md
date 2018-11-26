@@ -14,17 +14,19 @@ This is the library I have developed as Utility functions in Java, and started a
 = Intent: Having refied extension functions for creating intents and accessing default intents.
 - Preference: Higher order function to write preferences.
 
-And a lot more....
+
+And a [lot more](http://prashamtrivedi.github.io/UtilsLibrary/kutils/index.html)....
 
 ## How to use
 - Maven Repository (JitPack will always be available, JCenter is available from 0.5).
 
 - Gradle credentials 
-        ```goovy
-        implementation 'com.creativeelites:kutils:{latest_version}@aar'
-        ```
+
+```goovy
+    implementation 'com.creativeelites:kutils:{latest_version}@aar'
+```
     
-    For latest version see below.
+For latest version see below.
     
 ## Latest Version
 0.8
@@ -35,7 +37,7 @@ View [Changelog](changelog.md)
 There are lot to be done in this area, version 0.5 is just starting of these things.
 
 My plans for improvements are
-- [ ] Update documentations.
+- [x] Update documentations.
 - [x] Use kotlin capability at its full. Some methods can be improved.
 - [x] Use typealiases
 - [x] Use kutils in Java, and retire devUtils forever.
