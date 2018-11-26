@@ -1,4 +1,5 @@
 @file:JvmName("PlatformUtils")
+
 /*
  * Copyright (C) 2015 Mobs & Geeks
  *
@@ -25,3 +26,12 @@ fun platformIsOlderThan(version: Int): Boolean = Build.VERSION.SDK_INT < version
 
 
 fun platformIsGreaterThan(version: Int): Boolean = Build.VERSION.SDK_INT >= version
+
+
+inline fun runAndLogException(block: () -> Unit) {
+    try {
+        block()
+    } catch (e: Exception) {
+        e.printStackTrace()
+    }
+}

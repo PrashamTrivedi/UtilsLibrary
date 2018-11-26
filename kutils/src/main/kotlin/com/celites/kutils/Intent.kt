@@ -18,116 +18,132 @@ package com.celites.kutils
 
 import android.app.Activity
 import android.app.Service
-import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
+import android.content.Intent.getIntent
+import android.net.Uri
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 
+/**
+ * Starts activity from Context.
+ * @receiver Context to call startActivity From
+ * @param[flags] Flags to pass to the intent
+ * @param[data] Uri to pass to intent
+ * @param[extras] Extra to pass to intent
+ */
+@JvmOverloads
+inline fun <reified T : Activity> Context.startActivity(
+        flags: Int = 0,
+        data: Uri? = null,
+        extras: Bundle? = null
+) {
 
-fun Context.flags(flag: Int, vararg flags: Int): Int {
-    var orFlags = flag
-    for (i in flags) {
-        orFlags = orFlags or i
-    }
-    return orFlags
+    this.startActivity(getIntent<T>(flags, extras, data))
 }
 
-inline fun <reified T : Activity> Activity.startActivity() = this.startActivity(
-        getIntent<T>())
+/**
+ * Starts activity from Activity.
+ * @receiver Activity to call startActivity From
+ * @param[flags] Flags to pass to the intent
+ * @param[data] Uri to pass to intent
+ * @param[extras] Extra to pass to intent
+ */
+@JvmOverloads
+inline fun <reified T : Activity> Activity.startActivity(
+        flags: Int = 0,
+        data: Uri? = null,
+        extras: Bundle? = null
+) {
+    this.startActivity(getIntent<T>(flags, extras, data))
+}
 
-inline fun <reified T : Activity> Activity.startActivity(flags: Int) = this.startActivity(
-        getIntent<T>(flags))
-
-inline fun <reified T : Activity> Activity.startActivity(extras: Bundle) = this.startActivity(
-        getIntent<T>(bundle = extras))
-
-inline fun <reified T : Activity> Activity.startActivity(flags: Int,
-                                                         extras: Bundle) = this.startActivity(
-        getIntent<T>(flags, extras))
-
+/**
+ * Starts activity for result from Activity.
+ * @receiver Context to startActivity From
+ * @param[flags] Flags to pass to the intent
+ * @param[data] Uri to pass to intent
+ * @param[extras] Extra to pass to intent
+ */
+@JvmOverloads
 inline fun <reified T : Activity> Activity.startActivityForResult(
-        requestCode: Int) = this.startActivityForResult(getIntent<T>(), requestCode)
+        flags: Int = 0,
+        data: Uri? = null,
+        extras: Bundle? = null, requestCode: Int) = this.startActivityForResult(getIntent<T>
+(flags, extras, data),
+        requestCode)
 
-inline fun <reified T : Activity> Activity.startActivityForResult(requestCode: Int,
-                                                                  flags: Int) = this.startActivityForResult(
-        getIntent<T>(flags), requestCode)
+/**
+ * Starts Service
+ * @param[flags] Flags to pass to the intent
+ * @param[data] Uri to pass to intent
+ * @param[extras] Extra to pass to intent
+ */
+@JvmOverloads
+inline fun <reified T : Service> Context.startService(flags: Int = 0,
+                                                      data: Uri? = null,
+                                                      extras: Bundle? = null) = this.startService(
+        getIntent<T>(flags, extras, data))
 
-inline fun <reified T : Activity> Activity.startActivityForResult(extras: Bundle,
-                                                                  requestCode: Int) = this.startActivityForResult(
-        getIntent<T>(bundle = extras), requestCode)
+/**
+ * Starts Activity
+ * @param[flags] Flags to pass to the intent
+ * @param[data] Uri to pass to intent
+ * @param[extras] Extra to pass to intent
+ */
+@JvmOverloads
+inline fun <reified T : Activity> Fragment.startActivity(flags: Int = 0,
+                                                         data: Uri? = null,
+                                                         extras: Bundle? = null) = this.startActivity(
+        getIntent<T>(flags, extras, data))
 
-inline fun <reified T : Activity> Activity.startActivityForResult(extras: Bundle, requestCode: Int,
-                                                                  flags: Int) = this.startActivityForResult(
-        getIntent<T>(flags, extras), requestCode)
-
-inline fun <reified T : Activity> Service.startActivity() = this.startActivity(
-        getIntent<T>(Intent.FLAG_ACTIVITY_NEW_TASK))
-
-inline fun <reified T : Activity> Service.startActivity(flags: Int) = this.startActivity(
-        getIntent<T>(flags))
-
-inline fun <reified T : Activity> Service.startActivity(extras: Bundle) = this.startActivity(
-        getIntent<T>(Intent.FLAG_ACTIVITY_NEW_TASK, extras))
-
-inline fun <reified T : Activity> Service.startActivity(extras: Bundle,
-                                                        flags: Int) = this.startActivity(
-        getIntent<T>(flags, extras))
-
-inline fun <reified T : Service> Context.startService(): ComponentName = this.startService(
-        getIntent<T>())
-
-inline fun <reified T : Service> Context.startService(
-        flags: Int): ComponentName = this.startService(getIntent<T>(flags))
-
-inline fun <reified T : Service> Context.startService(
-        extras: Bundle): ComponentName = this.startService(getIntent<T>(bundle = extras))
-
-inline fun <reified T : Service> Context.startService(extras: Bundle,
-                                                      flags: Int): ComponentName = this.startService(
-        getIntent<T>(flags, extras))
-
-inline fun <reified T : Activity> Fragment.startActivity() = this.startActivity(
-        getIntent<T>())
-
+/**
+ * Calls `startActivityForResult` using given flags, bundles and url
+ * @param[flags] Flags to pass to the intent
+ * @param[data] Uri to pass to intent
+ * @param[extras] Extra to pass to intent
+ */
+@JvmOverloads
 inline fun <reified T : Activity> Fragment.startActivityForResult(
-        requestCode: Int) = this.startActivityForResult(getIntent<T>(), requestCode)
+        flags: Int = 0,
+        data: Uri? = null,
+        extras: Bundle? = null, requestCode: Int) = this.startActivityForResult(getIntent<T>
+(flags, extras, data),
+        requestCode)
 
-inline fun <reified T : Activity> Fragment.startActivity(flags: Int) = this.startActivity(
-        getIntent<T>(flags = flags))
-
-inline fun <reified T : Activity> Fragment.startActivityForResult(requestCode: Int,
-                                                                  flags: Int) = this.startActivityForResult(
-        getIntent<T>(flags = flags), requestCode)
-
-inline fun <reified T : Activity> Fragment.startActivity(extras: Bundle) = this.startActivity(
-        getIntent<T>(bundle = extras))
-
-inline fun <reified T : Activity> Fragment.startActivityForResult(requestCode: Int,
-                                                                  extras: Bundle) = this
-        .startActivityForResult(
-                getIntent<T>(bundle = extras), requestCode)
-
-
+/**
+ * Generates intent from Fragment
+ * @return: Generated intent from Flags, Data and Bundle.
+ * @param[flags] Flags to pass to the intent
+ * @param[data] Uri to pass to intent
+ * @param[bundle] Extra to pass to intent
+ */
+@JvmOverloads
 inline fun <reified T : Context> Fragment.getIntent(flags: Int = 0,
-                                                    bundle: Bundle? = null): Intent {
-
-    val intent = Intent(context, T::class.java)
-    intent.flags = flags
-    bundle?.let {
-        intent.putExtras(bundle)
-    }
-    return intent
+                                                    bundle: Bundle? = null,
+                                                    data: Uri? = null
+): Intent? {
+    return context?.getIntent<T>(flags, bundle, data)
 }
 
-inline fun <reified T : Context> Context.getIntent(): Intent = Intent(this, T::class.java)
-
-inline fun <reified T : Context> Context.getIntent(flags: Int = 0, bundle: Bundle? = null): Intent {
-    val intent = getIntent<T>()
-    intent.flags = flags
+/**
+ * Gets intent from Context
+ * @return: Generated intent from Flags, Data and Bundle.
+ * @param[flags] Flags to pass to the intent
+ * @param[data] Uri to pass to intent
+ * @param[bundle] Extra to pass to intent
+ * @receiver Context to generate intent from
+ */
+@JvmOverloads
+inline fun <reified T : Context> Context.getIntent(
+        flags: Int = 0,
+        bundle: Bundle? = null,
+        data: Uri? = null
+): Intent = Intent(this, T::class.java).apply {
+    this.flags = flags
+    this.data = data
     bundle?.let {
-        intent.putExtras(bundle)
+        putExtras(it)
     }
-    return intent
 }
 

@@ -2,10 +2,15 @@
 
 package com.celites.kutils
 
+import android.content.Context
+import android.text.format.DateFormat
+import java.text.SimpleDateFormat
 import java.util.*
 
-
-val Date.calendar: Calendar
+/**
+ * Gives [Calendar] object from Date
+ */
+inline val Date.calendar: Calendar
     get() {
         val calendar = Calendar.getInstance()
         calendar.time = this
@@ -13,61 +18,139 @@ val Date.calendar: Calendar
     }
 
 
-var Calendar.year: Int
+/**
+ * Gets and sets value of Year directly from [Calendar] Object
+ */
+inline var Calendar.year: Int
     get() = get(Calendar.YEAR)
     set(value) = set(Calendar.YEAR, value)
-var Calendar.dayOfMonth: Int
+
+/**
+ * Gets and sets value of DayOfMonth from [Calendar] Object
+ */
+inline var Calendar.dayOfMonth: Int
     get() = get(Calendar.DAY_OF_MONTH)
     set(value) = set(Calendar.DAY_OF_MONTH, value)
-var Calendar.month: Int
+
+/**
+ * Gets and sets value of Month from [Calendar] Object
+ */
+inline var Calendar.month: Int
     get() = get(Calendar.MONTH)
     set(value) = set(Calendar.MONTH, value)
-var Calendar.hour: Int
+
+/**
+ * Gets and sets value of Hour from [Calendar] Object
+ */
+inline var Calendar.hour: Int
     get() = get(Calendar.HOUR)
     set(value) = set(Calendar.HOUR, value)
-var Calendar.hourOfDay: Int
+
+/**
+ * Gets and sets value of HourOfDay from [Calendar] Object
+ */
+inline var Calendar.hourOfDay: Int
     get() = get(Calendar.HOUR_OF_DAY)
     set(value) = set(Calendar.HOUR_OF_DAY, value)
-var Calendar.minute: Int
+
+/**
+ * Gets and sets value of Minute from [Calendar] Object
+ */
+inline var Calendar.minute: Int
     get() = get(Calendar.MINUTE)
     set(value) = set(Calendar.MINUTE, value)
-var Calendar.second: Int
+
+/**
+ * Gets and sets value of Second from [Calendar] Object
+ */
+inline var Calendar.second: Int
     get() = get(Calendar.SECOND)
     set(value) = set(Calendar.SECOND, value)
 
-
-var Date.yearFromCalendar: Int
+/**
+ * Gets and sets value of DayOfMonth from [Date] Object
+ */
+inline var Date.yearFromCalendar: Int
     get() = calendar.year
     set(value) {
         calendar.year = value
     }
-var Date.dayOfMonth: Int
+/**
+ * Gets and sets value of DayOfMonth from [Date] Object
+ */
+inline var Date.dayOfMonth: Int
     get() = calendar.dayOfMonth
     set(value) {
         calendar.dayOfMonth = value
     }
-var Date.monthFromCalendar: Int
+/**
+ * Gets and sets value of Month from [Date] Object
+ */
+inline var Date.monthFromCalendar: Int
     get() = calendar.month
     set(value) {
         calendar.month = value
     }
-var Date.hour: Int
+/**
+ * Gets and sets value of Hour from [Date] Object
+ */
+inline var Date.hour: Int
     get() = calendar.hour
     set(value) {
         calendar.hour = value
     }
-var Date.hourOfDay: Int
+/**
+ * Gets and sets value of HourOfDay from [Date] Object
+ */
+inline var Date.hourOfDay: Int
     get() = calendar.hourOfDay
     set(value) {
         calendar.hourOfDay = value
     }
-var Date.minute: Int
+/**
+ * Gets and sets value of Minute from [Date] Object
+ */
+inline var Date.minute: Int
     get() = calendar.minute
     set(value) {
         calendar.minute = value
     }
-var Date.second: Int
+
+/**
+ * Gets and sets value of Second from [Date] Object
+ */
+inline var Date.second: Int
     get() = calendar.second
     set(value) {
         calendar.second = value
     }
+
+/**
+ * Gets value of Milliseconds of current time
+ */
+inline val now: Long
+    get() = Calendar.getInstance().timeInMillis
+
+/**
+ * Gets current time in given format
+ */
+fun getCurrentTimeInFormat(stringFormat: String): String {
+    val currentTime = Date()
+    return SimpleDateFormat(stringFormat, Locale.getDefault()).format(currentTime)
+}
+
+/**
+ * Formats date according to device's default date format
+ */
+fun Context.formatDateAccordingToDevice(date: Date): String {
+    val format = DateFormat.getDateFormat(this)
+    return format.format(date)
+}
+
+/**
+ * Formats time according to device's default time format
+ */
+fun Context.formatTimeAccordingToDevice(date: Date): String {
+    val format = DateFormat.getTimeFormat(this)
+    return format.format(date)
+}

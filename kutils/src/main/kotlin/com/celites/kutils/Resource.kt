@@ -1,4 +1,5 @@
 @file:JvmName("ResourceUtils")
+
 /*
  * Copyright (C) 2015 Mobs & Geeks
  *
@@ -15,61 +16,122 @@
 
 package com.celites.kutils
 
+import android.annotation.TargetApi
 import android.content.Context
 import android.graphics.Typeface
-import android.support.v4.content.ContextCompat
+import android.os.Build
+import androidx.core.content.ContextCompat
 import android.util.DisplayMetrics
+import androidx.core.content.res.ResourcesCompat
 
-
-fun Context.getAnimation(animResId: Int) =
+/**
+ * Fetches animation from Given animation resource id.
+ *
+ * Method name changed to avoid conflict with Framework APIs
+ */
+fun Context.fetchAnimation(animResId: Int) =
         resources.getAnimation(animResId)
 
-fun Context.getBoolean(booleanResId: Int) =
+/**
+ * Fetches boolean from Given boolean resource id.
+ *
+ * Method name changed to avoid conflict with Framework APIs
+ */
+
+fun Context.fetchBoolean(booleanResId: Int) =
         resources.getBoolean(booleanResId)
 
-fun Context.getColorCompat(colorResId: Int) =
+/**
+ * Fetches Color from Given Color resource id.
+ *
+ * This method calls ContextCompat Api
+ *
+ * Method name changed to avoid conflict with Framework APIs.
+ */
+fun Context.fetchColor(colorResId: Int) =
         ContextCompat.getColor(this, colorResId)
 
-fun Context.getColorStateListCompat(stateListResId: Int) =
+/**
+ * Fetches ColorStateList from Given State List resource id.
+ *
+ * This method calls ContextCompat Api
+ *
+ * Method name changed to avoid conflict with Framework APIs.
+ */
+fun Context.fetchColorStateListCompat(stateListResId: Int) =
         ContextCompat.getColorStateList(this, stateListResId)
 
-fun Context.getDimension(dimenResId: Int) =
+/**
+ * Fetches Dimension from Given Dimension resource id.
+ *
+ * Method name changed to avoid conflict with Framework APIs.
+ */
+fun Context.fetchDimension(dimenResId: Int) =
         resources.getDimension(dimenResId)
 
+/**
+ * Gets Display Metrics
+ */
 val Context.displayMetrics: DisplayMetrics
     get() =
         resources.displayMetrics
 
-fun Context.getIntArray(id: Int) =
+/**
+ * Fetches Int Array from Given id.
+ *
+ * Method name changed to avoid conflict with Framework APIs.
+ */
+fun Context.fetchIntArray(id: Int) =
         resources.getIntArray(id)
 
-fun Context.getInteger(id: Int) =
+/**
+ * Fetches Integer Resource from Given Integer resource id.
+ *
+ * Method name changed to avoid conflict with Framework APIs.
+ */
+fun Context.fetchInteger(id: Int) =
         resources.getInteger(id)
 
-fun Context.getLayout(id: Int) =
+
+fun Context.fetchLayout(id: Int) =
         resources.getLayout(id)
 
-fun Context.getMovie(id: Int) =
+fun Context.fetchMovie(id: Int) =
         resources.getMovie(id)
 
-fun Context.getQuantityString(id: Int, quantity: Int) =
-        resources.getQuantityString(id, quantity)
-
-fun Context.getQuantityString(id: Int, quantity: Int, vararg formatArgs: Any) =
+/**
+ * Fetches Quantity String from Given Quantity String resource id.
+ *
+ * Method name changed to avoid conflict with Framework APIs.
+ */
+fun Context.fetchQuantityString(id: Int, quantity: Int, vararg formatArgs: Any) =
         resources.getQuantityString(id, quantity, formatArgs)
 
-fun Context.getQuantityText(id: Int, quantity: Int) =
+fun Context.fetchQuantityText(id: Int, quantity: Int) =
         resources.getQuantityText(id, quantity)
 
-fun Context.getStringArray(arrayResId: Int) =
+fun Context.fetchStringArray(arrayResId: Int) =
         resources.getStringArray(arrayResId)
 
 fun Context.typefaceFromAssets(assetPathResId: Int) =
         typefaceFromAssets(getString(assetPathResId))
 
 fun Context.typefaceFromAssets(assetPath: String): Typeface =
-        Typeface.createFromAsset(getAssets(), assetPath)
+        Typeface.createFromAsset(assets, assetPath)
 
-fun Context.getDrawableCompat(id: Int) =
+/**
+ * Fetches Drawable from Given Drawable resource id.
+ *
+ * This method calls ContextCompat Api.
+ *
+ * Method name changed to avoid conflict with Framework APIs.
+ */
+fun Context.fetchDrawable(id: Int) =
         ContextCompat.getDrawable(this, id)
 
+/**
+ * Fetches animation from Given animation resource id
+
+ * Method name changed to avoid conflict with Framework APIs
+ */
+fun Context.fetchFont(id: Int) = ResourcesCompat.getFont(this, id)

@@ -2,49 +2,27 @@
 
 package com.celites.kutils
 
+import android.animation.ArgbEvaluator
+import android.animation.ObjectAnimator
+import android.content.res.TypedArray
 import android.graphics.drawable.Drawable
 import android.os.Build
-import android.support.annotation.MenuRes
-import android.support.annotation.RequiresApi
-import android.support.v7.widget.PopupMenu
-import android.util.TypedValue
+import android.util.AttributeSet
+import androidx.annotation.MenuRes
+import androidx.annotation.RequiresApi
+import androidx.appcompat.widget.PopupMenu
 import android.view.MenuItem
 import android.view.View
-import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.annotation.StyleRes
+import androidx.core.content.ContextCompat
+import androidx.core.content.withStyledAttributes
+import androidx.core.widget.TextViewCompat
 
-/**
- * Created by zoomi on 6/23/2017.
- */
 const val NO_GETTER: String = "Property does not have a getter"
 
 fun noGetter(): Nothing = throw RuntimeException("Property does not have a getter")
-val matchParent: Int = android.view.ViewGroup.LayoutParams.MATCH_PARENT
-val wrapContent: Int = android.view.ViewGroup.LayoutParams.WRAP_CONTENT
-
-var ViewGroup.MarginLayoutParams.verticalMargin: Int
-    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR) get() = noGetter()
-    set(v) {
-        topMargin = v
-        bottomMargin = v
-    }
-
-var ViewGroup.MarginLayoutParams.horizontalMargin: Int
-    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR) get() = noGetter()
-    set(v) {
-        leftMargin = v; rightMargin = v
-    }
-
-var ViewGroup.MarginLayoutParams.margin: Int
-    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR) get() = noGetter()
-    set(v) {
-        leftMargin = v
-        rightMargin = v
-        topMargin = v
-        bottomMargin = v
-    }
-
 
 var View.backgroundDrawable: Drawable?
     inline get() = background
@@ -53,56 +31,25 @@ var View.backgroundDrawable: Drawable?
         background = value
     }
 
-var View.leftPadding: Int
-    inline get() = paddingLeft
-    set(value) = setPadding(value, paddingTop, paddingRight, paddingBottom)
-
-var View.topPadding: Int
-    inline get() = paddingTop
-    set(value) = setPadding(paddingLeft, value, paddingRight, paddingBottom)
-
-var View.rightPadding: Int
-    inline get() = paddingRight
-    set(value) = setPadding(paddingLeft, paddingTop, value, paddingBottom)
-
-var View.bottomPadding: Int
-    inline get() = paddingBottom
-    set(value) = setPadding(paddingLeft, paddingTop, paddingRight, value)
-
-
-var View.horizontalPadding: Int
-    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR) get() = noGetter()
-    set(value) = setPadding(value, paddingTop, value, paddingBottom)
-
-var View.verticalPadding: Int
-    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR) get() = noGetter()
-    set(value) = setPadding(paddingLeft, value, paddingRight, value)
-
-var View.padding: Int
-    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR) get() = noGetter()
-    inline set(value) = setPadding(value, value, value, value)
-
 inline var TextView.isSelectable: Boolean
     get() = isTextSelectable
     set(value) = setTextIsSelectable(value)
 
-var TextView.textAppearance: Int
-    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR) get() = noGetter()
-    set(value) = if (Build.VERSION.SDK_INT >= 23) setTextAppearance(value) else setTextAppearance(context, value)
 
-var TextView.textSizeDimen: Int
-    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR) get() = noGetter()
-    set(value) = setTextSize(TypedValue.COMPLEX_UNIT_PX, context.resources.getDimension(value))
+fun TextView.updateTextAppearance(@StyleRes resource: Int) =
+        TextViewCompat.setTextAppearance(this, resource)
 
 var ImageView.image: Drawable?
     inline get() = drawable
     inline set(value) = setImageDrawable(value)
 
 
+@Deprecated(message = "This method is deprecated, please use Android KTX's method", level = DeprecationLevel.ERROR)
 @JvmOverloads
-fun View.setVisible(condition: Boolean, shouldBeGoneWhenFalse: Boolean = true) {
-    val visibility = if (condition) View.VISIBLE else if (shouldBeGoneWhenFalse) View.GONE else View.INVISIBLE
-    setVisibility(visibility)
+fun setVisible(condition: Boolean, shouldBeGoneWhenFalse: Boolean = true) {
+//    val visibility = if (condition) View.VISIBLE else if (shouldBeGoneWhenFalse) View.GONE else View.INVISIBLE
+//    setVisibility(visibility)
+    //Sorry won't do anything
 }
 
 fun View.hideKeyboard() {
@@ -118,4 +65,33 @@ inline fun View.showPopupMenu(@MenuRes menuId: Int, crossinline menuItemClickLis
         true
     }
     popupMenu.show()
+}
+
+
+fun View.bgColorAnim(from: Int, to: Int) {
+    val backgroundColorAnimator = ObjectAnimator.ofObject(
+            this,
+            "backgroundColor",
+            ArgbEvaluator(),
+            ContextCompat.getColor(context, from),
+            ContextCompat.getColor(context, to)
+    )
+    backgroundColorAnimator.duration = 300
+    backgroundColorAnimator.start()
+}
+
+fun TextView.textColorAnim(from: Int, to: Int) {
+    val textColorAnimator = ObjectAnimator.ofObject(
+            this,
+            "textColor",
+            ArgbEvaluator(),
+            ContextCompat.getColor(context, from),
+            ContextCompat.getColor(context, to)
+    )
+    textColorAnimator.duration = 300
+    textColorAnimator.start()
+}
+
+inline fun View.readAttributes(attrs: AttributeSet? = null, stylebleResource: IntArray, attributeReaderFun: (TypedArray) -> Unit = {}) {
+    context.withStyledAttributes(attrs, stylebleResource, block = attributeReaderFun)
 }

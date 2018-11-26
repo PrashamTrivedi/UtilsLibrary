@@ -1,4 +1,5 @@
 @file:JvmName("PreferenceUtils")
+
 /*
  * Copyright (C) 2015 Mobs & Geeks
  *
@@ -18,74 +19,43 @@ package com.celites.kutils
 import android.content.Context
 import android.content.SharedPreferences
 import android.preference.PreferenceManager
+import androidx.core.content.edit
 
 
-fun Context.getDefaultSharedPreferences(): SharedPreferences {
-    return PreferenceManager.getDefaultSharedPreferences(this)
-}
+inline val Context.sharedPreferences: SharedPreferences
+    get() = PreferenceManager.getDefaultSharedPreferences(this)
 
-fun SharedPreferences.put(params: Array<out Pair<String, Any>>) {
-    val editor = edit()
-    for ((key, value) in params) {
-        when (value) {
-            is Int -> putInt(key, value)
-            is Float -> putFloat(key, value)
-            is Boolean -> putBoolean(key, value)
-            is Long -> putLong(key, value)
-            is String -> putString(key, value)
+
+fun SharedPreferences.put(commit: Boolean = false, params: Array<out Pair<String, Any>>) {
+    edit(commit = commit) {
+        for ((key, value) in params) {
+            when (value) {
+                is Int -> putInt(key, value)
+                is Float -> putFloat(key, value)
+                is Boolean -> putBoolean(key, value)
+                is Long -> putLong(key, value)
+                is String -> putString(key, value)
+            }
         }
     }
-    editor.apply()
 }
 
-fun SharedPreferences.clear() {
-    edit { clear() }
+fun SharedPreferences.clear(commit: Boolean = false) {
+    edit(commit = commit) { clear() }
 }
 
-fun SharedPreferences.putBoolean(key: String, value: Boolean) {
-    edit { putBoolean(key, value) }
-}
-
-fun SharedPreferences.putFloat(key: String, value: Float) {
-    edit { putFloat(key, value) }
-}
-
-fun SharedPreferences.putInt(key: String, value: Int) {
-    edit { putInt(key, value) }
-}
-
-fun SharedPreferences.putLong(key: String, value: Long) {
-    edit { putLong(key, value) }
-}
-
-fun SharedPreferences.putString(key: String, value: String?) {
-    edit { putString(key, value) }
-}
-
-//public fun SharedPreferences.putStringSet(key: String, values: Any) {
-//    edit { putStringSet(key, values) }
-//}
 
 fun SharedPreferences.remove(key: String) {
-    edit { remove(key) }
+    edit {
+        remove(key)
+    }
 }
 
-
+@Deprecated(message = "Please use Android KTX's edit method", replaceWith = ReplaceWith("edit(commit=false,action=func)"))
 inline fun SharedPreferences.edit(func: SharedPreferences.Editor.() -> Unit) {
     val editor = edit()
     editor.func()
     editor.apply()
 }
 
-/*
- * -----------------------------------------------------------------------------
- *  Private functions
- * -----------------------------------------------------------------------------
- */
-private fun SharedPreferences.getEditor(): SharedPreferences.Editor {
-    return this.edit()
-}
 
-private fun SharedPreferences.apply(editor: SharedPreferences.Editor) {
-    editor.apply()
-}

@@ -1,4 +1,5 @@
 @file:JvmName("StorageAccessHelper")
+
 package com.celites.kutils
 
 /**
@@ -15,7 +16,7 @@ import android.provider.MediaStore
 import java.io.File
 
 /**
- * Created by Prasham on 1/2/2016.
+ * Gets extension from filePath
  */
 val String.extension: String
     get() {
@@ -52,7 +53,7 @@ fun Context.getFilePath(uri: Uri): String {
         val storageType = split[0]
 
         if (storageType.equals("primary", true)) {
-            path = Environment.getExternalStorageDirectory().path + "/" + split[1]
+            path = "${Environment.getExternalStorageDirectory().path}/${split[1]}"
         }
     } else if (uri.isDownloadDocuments()) {
         val id = DocumentsContract.getDocumentId(uri)
@@ -64,15 +65,13 @@ fun Context.getFilePath(uri: Uri): String {
         val id = DocumentsContract.getDocumentId(uri)
         val split = id.split(":")
         val mediaType = split[0]
-        val selection = "_id"
+        val selection = "_id=?"
         val selectionArg = arrayOf(split[1])
 
-        if (mediaType.equals("image", true)) {
-            path = getDataColumn(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, selection, selectionArg)
-        } else if (mediaType.equals("video", true)) {
-            path = getDataColumn(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, selection, selectionArg)
-        } else if (mediaType.equals("audio", true)) {
-            path = getDataColumn(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, selection, selectionArg)
+        when {
+            mediaType.equals("image", true) -> path = getDataColumn(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, selection, selectionArg)
+            mediaType.equals("video", true) -> path = getDataColumn(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, selection, selectionArg)
+            mediaType.equals("audio", true) -> path = getDataColumn(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, selection, selectionArg)
         }
 
 
