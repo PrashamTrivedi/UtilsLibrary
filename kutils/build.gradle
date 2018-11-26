@@ -27,7 +27,7 @@ android {
 }
 dokka {
     outputFormat = 'html'
-    outputDirectory = "${rootProject.rootDir}/doc"
+    outputDirectory = "${rootProject.rootDir}/docs"
     includes = ["readme.md"]
 
 }
