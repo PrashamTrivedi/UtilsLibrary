@@ -4,6 +4,9 @@ import android.text.Spannable
 import android.text.SpannableStringBuilder
 import android.text.style.CharacterStyle
 
+/**
+ * @suppress
+ */
 class Spaniard(val originalString: String) {
 
     var spannableStringBuilder = SpannableStringBuilder(originalString)

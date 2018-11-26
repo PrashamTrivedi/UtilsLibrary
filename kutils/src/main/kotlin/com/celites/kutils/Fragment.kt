@@ -16,26 +16,49 @@
 
 package com.celites.kutils
 
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentActivity
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.Toolbar
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 
+
+/**
+ * Calls fragment's `setHasOptionMenu` with `true` as default
+ * @receiver Fragment
+ * @param[hasOptionsMenu]: Default `true`, Pass false to not have options menu
+ */
 @JvmOverloads
 fun Fragment.allowOptionsMenu(hasOptionsMenu: Boolean = true) {
     setHasOptionsMenu(hasOptionsMenu)
 }
 
+/**
+ * Call's Parent activity's `setSupportActionBar` from Fragment
+ * @receiver Fragment
+ * @param[toolbar]: Toolbar to set support actionbar
+ */
 fun Fragment.setSupportActionbar(toolbar: Toolbar) {
     val appcompatActivity = this.activity as AppCompatActivity?
     appcompatActivity?.setSupportActionBar(toolbar)
 }
 
+/**
+ * Go back to fragment whose tag matches with name
+ * @param[name]: Name of the tag.
+ * @param[flag]: Flag, Defaults to 0, optionally you can pass POP_BACKSTACK_INCLUSIVE
+ * @receiver FragmentActivity
+ */
 @JvmOverloads
 fun FragmentActivity.goBackToFragment(name: String, flag: Int = 0) {
     supportFragmentManager.popBackStackImmediate(name, flag)
 }
 
+/**
+ * Go back to fragment whose tag matches with name
+ * @param[name]: Name of the tag.
+ * @param[flag]: Flag, Defaults to 0, optionally you can pass POP_BACKSTACK_INCLUSIVE
+ * @receiver Fragment
+ */
 @JvmOverloads
 fun Fragment.goBackToFragment(name: String, flag: Int = 0) {
     fragmentManager?.popBackStackImmediate(name, flag)

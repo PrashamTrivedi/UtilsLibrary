@@ -24,33 +24,43 @@ import android.os.Parcelable
  */
 fun Bundle.put(params: Array<out Pair<String, Any>>): Bundle {
     for ((key, value) in params) {
-        when (value) {
-            is Int -> putInt(key, value)
-            is IntArray -> putIntArray(key, value)
-            is Long -> putLong(key, value)
-            is LongArray -> putLongArray(key, value)
-            is CharSequence -> putCharSequence(key, value)
-            is String -> putString(key, value)
-            is Float -> putFloat(key, value)
-            is FloatArray -> putFloatArray(key, value)
-            is Double -> putDouble(key, value)
-            is DoubleArray -> putDoubleArray(key, value)
-            is Char -> putChar(key, value)
-            is CharArray -> putCharArray(key, value)
-            is Short -> putShort(key, value)
-            is ShortArray -> putShortArray(key, value)
-            is Boolean -> putBoolean(key, value)
-            is BooleanArray -> putBooleanArray(key, value)
-
-            is Parcelable -> putParcelable(key, value)
-            is Bundle -> putAll(value)
-            is Array<*> -> when {
-                value.isArrayOf<Parcelable>() -> putParcelableArray(key, value as Array<out Parcelable>?)
-            }
-
-        }
+        putValue(key = key, value = value)
     }
     return this
+}
+
+fun Bundle.put(param: Pair<String, Any>): Bundle {
+    val (key, value) = param
+    putValue(key = key, value = value)
+    return this
+}
+
+private fun Bundle.putValue(key: String, value: Any) {
+    when (value) {
+        is Int -> putInt(key, value)
+        is IntArray -> putIntArray(key, value)
+        is Long -> putLong(key, value)
+        is LongArray -> putLongArray(key, value)
+        is CharSequence -> putCharSequence(key, value)
+        is String -> putString(key, value)
+        is Float -> putFloat(key, value)
+        is FloatArray -> putFloatArray(key, value)
+        is Double -> putDouble(key, value)
+        is DoubleArray -> putDoubleArray(key, value)
+        is Char -> putChar(key, value)
+        is CharArray -> putCharArray(key, value)
+        is Short -> putShort(key, value)
+        is ShortArray -> putShortArray(key, value)
+        is Boolean -> putBoolean(key, value)
+        is BooleanArray -> putBooleanArray(key, value)
+
+        is Parcelable -> putParcelable(key, value)
+        is Bundle -> putAll(value)
+        is Array<*> -> when {
+            value.isArrayOf<Parcelable>() -> putParcelableArray(key, value as Array<out Parcelable>?)
+        }
+
+    }
 }
 
 
@@ -60,7 +70,11 @@ fun Bundle.put(params: Array<out Pair<String, Any>>): Bundle {
 @JvmOverloads
 fun Bundle.extractBundle(keyValSeparator: String = ": ", newSetSeparator: String = "\n"): String {
     val keyvals = StringBuilder()
-    keySet().forEach { keyvals.append(it).append(keyValSeparator).append(get(it).toString()).append(newSetSeparator) }
+    keySet().forEach {
+        keyvals.append(it).append(keyValSeparator).append(get(it)?.toString()
+                ?: "null etnry")
+                .append(newSetSeparator)
+    }
     return keyvals.toString()
 }
 
@@ -70,7 +84,7 @@ fun Bundle.extractBundle(keyValSeparator: String = ": ", newSetSeparator: String
 fun Bundle.toMap(): Map<String, String> {
     val map = HashMap<String, String>()
     for (key in keySet()) {
-        map.put(key, get(key).toString())
+        map.put(key, get(key)?.toString() ?: "Null Entry")
     }
     return map
 }

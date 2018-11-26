@@ -2,6 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply from: 'https://raw.githubusercontent.com/PrashamTrivedi/JCenter/master/installv1.gradle'
 apply from: 'https://raw.githubusercontent.com/PrashamTrivedi/JCenter/master/bintrayv1.gradle'
+apply plugin: 'org.jetbrains.dokka-android'
 
 android {
     compileSdkVersion 28
@@ -24,10 +25,16 @@ android {
         test.java.srcDirs += 'src/test/kotlin'
     }
 }
+dokka {
+    outputFormat = 'html'
+    outputDirectory = "${rootProject.rootDir}/doc"
+    includes = ["readme.md"]
 
+}
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    api 'androidx.core:core-ktx:1.0.1'
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }

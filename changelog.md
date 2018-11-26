@@ -1,5 +1,20 @@
 # ChangeLog
 
+### 1.0 - AndroidX version(Coming Soon)
+- Started adding some documentation
+- This library is dependent on AndroidX and Android-KTX. 
+    - This removes many methods which are duplicate methods.
+    - All the deprecations are meant to be removed in 1.1
+- Added some date formatting methods in dates.
+- Corrected inlining in lot of places
+- Intents- Now you can pass data uri around intents and start activity methods
+- Added share method in Intent Helpers
+- Added `runAndLogException`: This method runs the block and when any exception occurs, logs this
+ exception.
+- Resources: Added font resource
+- Views: Added some anim methods and read attribute method for custom views.
+- Added utilities around date class
+
 ### 0.8
 - Removed deprecated methods
 - Added ability to have attachment to email.
