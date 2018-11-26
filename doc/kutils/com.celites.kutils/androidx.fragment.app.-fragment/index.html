@@ -1,0 +1,70 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>com.celites.kutils.androidx.fragment.app.Fragment - kutils</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">kutils</a>&nbsp;/&nbsp;<a href="../index.html">com.celites.kutils</a>&nbsp;/&nbsp;<a href="./index.html">androidx.fragment.app.Fragment</a><br/>
+<br/>
+<h3>Extensions for androidx.fragment.app.Fragment</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="allow-options-menu.html">allowOptionsMenu</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">Fragment</span><span class="symbol">.</span><span class="identifier">allowOptionsMenu</span><span class="symbol">(</span><span class="identifier" id="com.celites.kutils$allowOptionsMenu(androidx.fragment.app.Fragment, kotlin.Boolean)/hasOptionsMenu">hasOptionsMenu</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Calls fragment's <code>setHasOptionMenu</code> with <code>true</code> as default</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="get-intent.html">getIntent</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/content/Context.html"><span class="identifier">Context</span></a><span class="symbol">&gt;</span> <span class="identifier">Fragment</span><span class="symbol">.</span><span class="identifier">getIntent</span><span class="symbol">(</span><span class="identifier" id="com.celites.kutils$getIntent(androidx.fragment.app.Fragment, kotlin.Int, android.os.Bundle, android.net.Uri)/flags">flags</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0<span class="symbol">, </span><span class="identifier" id="com.celites.kutils$getIntent(androidx.fragment.app.Fragment, kotlin.Int, android.os.Bundle, android.net.Uri)/bundle">bundle</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/os/Bundle.html"><span class="identifier">Bundle</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="com.celites.kutils$getIntent(androidx.fragment.app.Fragment, kotlin.Int, android.os.Bundle, android.net.Uri)/data">data</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/net/Uri.html"><span class="identifier">Uri</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><a href="https://developer.android.com/reference/android/content/Intent.html"><span class="identifier">Intent</span></a><span class="symbol">?</span></code>
+<p>Generates intent from Fragment</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="go-back-to-fragment.html">goBackToFragment</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">Fragment</span><span class="symbol">.</span><span class="identifier">goBackToFragment</span><span class="symbol">(</span><span class="identifier" id="com.celites.kutils$goBackToFragment(androidx.fragment.app.Fragment, kotlin.String, kotlin.Int)/name">name</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="com.celites.kutils$goBackToFragment(androidx.fragment.app.Fragment, kotlin.String, kotlin.Int)/flag">flag</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Go back to fragment whose tag matches with name</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-support-actionbar.html">setSupportActionbar</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">Fragment</span><span class="symbol">.</span><span class="identifier">setSupportActionbar</span><span class="symbol">(</span><span class="identifier" id="com.celites.kutils$setSupportActionbar(androidx.fragment.app.Fragment, androidx.appcompat.widget.Toolbar)/toolbar">toolbar</span><span class="symbol">:</span>&nbsp;<span class="identifier">Toolbar</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Call's Parent activity's <code>setSupportActionBar</code> from Fragment</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="start-activity.html">startActivity</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/app/Activity.html"><span class="identifier">Activity</span></a><span class="symbol">&gt;</span> <span class="identifier">Fragment</span><span class="symbol">.</span><span class="identifier">startActivity</span><span class="symbol">(</span><span class="identifier" id="com.celites.kutils$startActivity(androidx.fragment.app.Fragment, kotlin.Int, android.net.Uri, android.os.Bundle)/flags">flags</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0<span class="symbol">, </span><span class="identifier" id="com.celites.kutils$startActivity(androidx.fragment.app.Fragment, kotlin.Int, android.net.Uri, android.os.Bundle)/data">data</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/net/Uri.html"><span class="identifier">Uri</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="com.celites.kutils$startActivity(androidx.fragment.app.Fragment, kotlin.Int, android.net.Uri, android.os.Bundle)/extras">extras</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/os/Bundle.html"><span class="identifier">Bundle</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Starts Activity</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="start-activity-for-result.html">startActivityForResult</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/app/Activity.html"><span class="identifier">Activity</span></a><span class="symbol">&gt;</span> <span class="identifier">Fragment</span><span class="symbol">.</span><span class="identifier">startActivityForResult</span><span class="symbol">(</span><span class="identifier" id="com.celites.kutils$startActivityForResult(androidx.fragment.app.Fragment, kotlin.Int, android.net.Uri, android.os.Bundle, kotlin.Int)/flags">flags</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0<span class="symbol">, </span><span class="identifier" id="com.celites.kutils$startActivityForResult(androidx.fragment.app.Fragment, kotlin.Int, android.net.Uri, android.os.Bundle, kotlin.Int)/data">data</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/net/Uri.html"><span class="identifier">Uri</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="com.celites.kutils$startActivityForResult(androidx.fragment.app.Fragment, kotlin.Int, android.net.Uri, android.os.Bundle, kotlin.Int)/extras">extras</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/os/Bundle.html"><span class="identifier">Bundle</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="com.celites.kutils$startActivityForResult(androidx.fragment.app.Fragment, kotlin.Int, android.net.Uri, android.os.Bundle, kotlin.Int)/requestCode">requestCode</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Calls <code>startActivityForResult</code> using given flags, bundles and url</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

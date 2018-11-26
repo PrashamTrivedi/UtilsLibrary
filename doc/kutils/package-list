@@ -1,0 +1,163 @@
+$dokka.format:html
+$dokka.linkExtension:html
+$dokka.location:com.celites.kutils$accessibilityManager#android.content.Contextcom.celites.kutils/android.content.-context/accessibility-manager.html
+$dokka.location:com.celites.kutils$accountManager#android.content.Contextcom.celites.kutils/android.content.-context/account-manager.html
+$dokka.location:com.celites.kutils$activityManager#android.content.Contextcom.celites.kutils/android.content.-context/activity-manager.html
+$dokka.location:com.celites.kutils$addToCommaSeparatedString(kotlin.String, kotlin.String, kotlin.Boolean)com.celites.kutils/kotlin.-string/add-to-comma-separated-string.html
+$dokka.location:com.celites.kutils$alarmManager#android.content.Contextcom.celites.kutils/android.content.-context/alarm-manager.html
+$dokka.location:com.celites.kutils$allowOptionsMenu(androidx.fragment.app.Fragment, kotlin.Boolean)com.celites.kutils/androidx.fragment.app.-fragment/allow-options-menu.html
+$dokka.location:com.celites.kutils$appOpsManager#android.content.Contextcom.celites.kutils/android.content.-context/app-ops-manager.html
+$dokka.location:com.celites.kutils$appWidgetManager#android.content.Contextcom.celites.kutils/android.content.-context/app-widget-manager.html
+$dokka.location:com.celites.kutils$applyTinting(android.graphics.drawable.Drawable, kotlin.Int)com.celites.kutils/android.graphics.drawable.-drawable/apply-tinting.html
+$dokka.location:com.celites.kutils$applyTinting(android.graphics.drawable.Drawable, kotlin.Int, android.content.Context)com.celites.kutils/android.graphics.drawable.-drawable/apply-tinting.html
+$dokka.location:com.celites.kutils$applyTinting(android.widget.ImageView, kotlin.Int)com.celites.kutils/android.widget.-image-view/apply-tinting.html
+$dokka.location:com.celites.kutils$asString(java.util.Date, kotlin.String)com.celites.kutils/java.util.-date/as-string.html
+$dokka.location:com.celites.kutils$audioManager#android.content.Contextcom.celites.kutils/android.content.-context/audio-manager.html
+$dokka.location:com.celites.kutils$backgroundDrawable#android.view.Viewcom.celites.kutils/android.view.-view/background-drawable.html
+$dokka.location:com.celites.kutils$batteryManager#android.content.Contextcom.celites.kutils/android.content.-context/battery-manager.html
+$dokka.location:com.celites.kutils$bgColorAnim(android.view.View, kotlin.Int, kotlin.Int)com.celites.kutils/android.view.-view/bg-color-anim.html
+$dokka.location:com.celites.kutils$bitmapDrawable#android.widget.ImageViewcom.celites.kutils/android.widget.-image-view/bitmap-drawable.html
+$dokka.location:com.celites.kutils$bluetoothAdapter#android.content.Contextcom.celites.kutils/android.content.-context/bluetooth-adapter.html
+$dokka.location:com.celites.kutils$browseUrl(android.content.Context, kotlin.String)com.celites.kutils/android.content.-context/browse-url.html
+$dokka.location:com.celites.kutils$calendar#java.util.Datecom.celites.kutils/java.util.-date/calendar.html
+$dokka.location:com.celites.kutils$cameraManager#android.content.Contextcom.celites.kutils/android.content.-context/camera-manager.html
+$dokka.location:com.celites.kutils$captioningManager#android.content.Contextcom.celites.kutils/android.content.-context/captioning-manager.html
+$dokka.location:com.celites.kutils$clear(android.content.SharedPreferences, kotlin.Boolean)com.celites.kutils/android.content.-shared-preferences/clear.html
+$dokka.location:com.celites.kutils$clipboardManager#android.content.Contextcom.celites.kutils/android.content.-context/clipboard-manager.html
+$dokka.location:com.celites.kutils$connectivityManager#android.content.Contextcom.celites.kutils/android.content.-context/connectivity-manager.html
+$dokka.location:com.celites.kutils$consumerIrManager#android.content.Contextcom.celites.kutils/android.content.-context/consumer-ir-manager.html
+$dokka.location:com.celites.kutils$containsInArray(kotlin.String, kotlin.Array((kotlin.String)), kotlin.Boolean)com.celites.kutils/kotlin.-string/contains-in-array.html
+$dokka.location:com.celites.kutils$convertDateFormat(kotlin.String, kotlin.String, kotlin.String)com.celites.kutils/kotlin.-string/convert-date-format.html
+$dokka.location:com.celites.kutils$dayOfMonth#java.util.Calendarcom.celites.kutils/java.util.-calendar/day-of-month.html
+$dokka.location:com.celites.kutils$dayOfMonth#java.util.Datecom.celites.kutils/java.util.-date/day-of-month.html
+$dokka.location:com.celites.kutils$devicePolicyManager#android.content.Contextcom.celites.kutils/android.content.-context/device-policy-manager.html
+$dokka.location:com.celites.kutils$displayManager#android.content.Contextcom.celites.kutils/android.content.-context/display-manager.html
+$dokka.location:com.celites.kutils$displayMetrics#android.content.Contextcom.celites.kutils/android.content.-context/display-metrics.html
+$dokka.location:com.celites.kutils$downloadManager#android.content.Contextcom.celites.kutils/android.content.-context/download-manager.html
+$dokka.location:com.celites.kutils$dropBoxManager#android.content.Contextcom.celites.kutils/android.content.-context/drop-box-manager.html
+$dokka.location:com.celites.kutils$edit(android.content.SharedPreferences, kotlin.Function1((android.content.SharedPreferences.Editor, kotlin.Unit)))com.celites.kutils/android.content.-shared-preferences/edit.html
+$dokka.location:com.celites.kutils$extension#kotlin.Stringcom.celites.kutils/kotlin.-string/extension.html
+$dokka.location:com.celites.kutils$extractBundle(android.os.Bundle, kotlin.String, kotlin.String)com.celites.kutils/android.os.-bundle/extract-bundle.html
+$dokka.location:com.celites.kutils$failSafeSplit(kotlin.String, kotlin.String)com.celites.kutils/kotlin.-string/fail-safe-split.html
+$dokka.location:com.celites.kutils$fetchAnimation(android.content.Context, kotlin.Int)com.celites.kutils/android.content.-context/fetch-animation.html
+$dokka.location:com.celites.kutils$fetchBoolean(android.content.Context, kotlin.Int)com.celites.kutils/android.content.-context/fetch-boolean.html
+$dokka.location:com.celites.kutils$fetchColor(android.content.Context, kotlin.Int)com.celites.kutils/android.content.-context/fetch-color.html
+$dokka.location:com.celites.kutils$fetchColorStateListCompat(android.content.Context, kotlin.Int)com.celites.kutils/android.content.-context/fetch-color-state-list-compat.html
+$dokka.location:com.celites.kutils$fetchDimension(android.content.Context, kotlin.Int)com.celites.kutils/android.content.-context/fetch-dimension.html
+$dokka.location:com.celites.kutils$fetchDrawable(android.content.Context, kotlin.Int)com.celites.kutils/android.content.-context/fetch-drawable.html
+$dokka.location:com.celites.kutils$fetchFont(android.content.Context, kotlin.Int)com.celites.kutils/android.content.-context/fetch-font.html
+$dokka.location:com.celites.kutils$fetchIntArray(android.content.Context, kotlin.Int)com.celites.kutils/android.content.-context/fetch-int-array.html
+$dokka.location:com.celites.kutils$fetchInteger(android.content.Context, kotlin.Int)com.celites.kutils/android.content.-context/fetch-integer.html
+$dokka.location:com.celites.kutils$fetchLayout(android.content.Context, kotlin.Int)com.celites.kutils/android.content.-context/fetch-layout.html
+$dokka.location:com.celites.kutils$fetchMovie(android.content.Context, kotlin.Int)com.celites.kutils/android.content.-context/fetch-movie.html
+$dokka.location:com.celites.kutils$fetchQuantityString(android.content.Context, kotlin.Int, kotlin.Int, kotlin.Array((kotlin.Any)))com.celites.kutils/android.content.-context/fetch-quantity-string.html
+$dokka.location:com.celites.kutils$fetchQuantityText(android.content.Context, kotlin.Int, kotlin.Int)com.celites.kutils/android.content.-context/fetch-quantity-text.html
+$dokka.location:com.celites.kutils$fetchStringArray(android.content.Context, kotlin.Int)com.celites.kutils/android.content.-context/fetch-string-array.html
+$dokka.location:com.celites.kutils$formatDateAccordingToDevice(android.content.Context, java.util.Date)com.celites.kutils/android.content.-context/format-date-according-to-device.html
+$dokka.location:com.celites.kutils$formatTimeAccordingToDevice(android.content.Context, java.util.Date)com.celites.kutils/android.content.-context/format-time-according-to-device.html
+$dokka.location:com.celites.kutils$getDataColumn(android.content.Context, android.net.Uri, kotlin.String, kotlin.Array((kotlin.String)))com.celites.kutils/android.content.-context/get-data-column.html
+$dokka.location:com.celites.kutils$getDouble(kotlin.CharSequence)com.celites.kutils/kotlin.-char-sequence/get-double.html
+$dokka.location:com.celites.kutils$getFilePath(android.content.Context, android.net.Uri)com.celites.kutils/android.content.-context/get-file-path.html
+$dokka.location:com.celites.kutils$getIntent(android.content.Context, kotlin.Int, android.os.Bundle, android.net.Uri)com.celites.kutils/android.content.-context/get-intent.html
+$dokka.location:com.celites.kutils$getIntent(androidx.fragment.app.Fragment, kotlin.Int, android.os.Bundle, android.net.Uri)com.celites.kutils/androidx.fragment.app.-fragment/get-intent.html
+$dokka.location:com.celites.kutils$getNumber(kotlin.CharSequence)com.celites.kutils/kotlin.-char-sequence/get-number.html
+$dokka.location:com.celites.kutils$getRealPathFromUri(android.content.ContentResolver, android.net.Uri)com.celites.kutils/android.content.-content-resolver/get-real-path-from-uri.html
+$dokka.location:com.celites.kutils$getUri(java.io.File)com.celites.kutils/java.io.-file/get-uri.html
+$dokka.location:com.celites.kutils$goBackToFragment(androidx.fragment.app.Fragment, kotlin.String, kotlin.Int)com.celites.kutils/androidx.fragment.app.-fragment/go-back-to-fragment.html
+$dokka.location:com.celites.kutils$goBackToFragment(androidx.fragment.app.FragmentActivity, kotlin.String, kotlin.Int)com.celites.kutils/androidx.fragment.app.-fragment-activity/go-back-to-fragment.html
+$dokka.location:com.celites.kutils$hasPreview#androidx.documentfile.provider.DocumentFilecom.celites.kutils/androidx.documentfile.provider.-document-file/has-preview.html
+$dokka.location:com.celites.kutils$hideKeyboard(android.view.View)com.celites.kutils/android.view.-view/hide-keyboard.html
+$dokka.location:com.celites.kutils$hour#java.util.Calendarcom.celites.kutils/java.util.-calendar/hour.html
+$dokka.location:com.celites.kutils$hour#java.util.Datecom.celites.kutils/java.util.-date/hour.html
+$dokka.location:com.celites.kutils$hourOfDay#java.util.Calendarcom.celites.kutils/java.util.-calendar/hour-of-day.html
+$dokka.location:com.celites.kutils$hourOfDay#java.util.Datecom.celites.kutils/java.util.-date/hour-of-day.html
+$dokka.location:com.celites.kutils$image#android.widget.ImageViewcom.celites.kutils/android.widget.-image-view/image.html
+$dokka.location:com.celites.kutils$inflateLayout(android.content.Context, kotlin.Int, android.view.ViewGroup, kotlin.Boolean)com.celites.kutils/android.content.-context/inflate-layout.html
+$dokka.location:com.celites.kutils$inputManager#android.content.Contextcom.celites.kutils/android.content.-context/input-manager.html
+$dokka.location:com.celites.kutils$inputMethodManager#android.content.Contextcom.celites.kutils/android.content.-context/input-method-manager.html
+$dokka.location:com.celites.kutils$isAudio#androidx.documentfile.provider.DocumentFilecom.celites.kutils/androidx.documentfile.provider.-document-file/is-audio.html
+$dokka.location:com.celites.kutils$isDateStringProperlyFormatted(kotlin.String, kotlin.String)com.celites.kutils/kotlin.-string/is-date-string-properly-formatted.html
+$dokka.location:com.celites.kutils$isDigitOnly(kotlin.CharSequence)com.celites.kutils/kotlin.-char-sequence/is-digit-only.html
+$dokka.location:com.celites.kutils$isDownloadDocuments(android.net.Uri)com.celites.kutils/android.net.-uri/is-download-documents.html
+$dokka.location:com.celites.kutils$isEmptyString(kotlin.CharSequence)com.celites.kutils/kotlin.-char-sequence/is-empty-string.html
+$dokka.location:com.celites.kutils$isExternalStorageDocument(android.net.Uri)com.celites.kutils/android.net.-uri/is-external-storage-document.html
+$dokka.location:com.celites.kutils$isImage#androidx.documentfile.provider.DocumentFilecom.celites.kutils/androidx.documentfile.provider.-document-file/is-image.html
+$dokka.location:com.celites.kutils$isIntentAvailable(android.content.Context, android.content.Intent, kotlin.Int)com.celites.kutils/android.content.-context/is-intent-available.html
+$dokka.location:com.celites.kutils$isLocal(kotlin.String)com.celites.kutils/kotlin.-string/is-local.html
+$dokka.location:com.celites.kutils$isMediaDocument(android.net.Uri)com.celites.kutils/android.net.-uri/is-media-document.html
+$dokka.location:com.celites.kutils$isMediaUri(android.net.Uri)com.celites.kutils/android.net.-uri/is-media-uri.html
+$dokka.location:com.celites.kutils$isOnline(android.content.Context)com.celites.kutils/android.content.-context/is-online.html
+$dokka.location:com.celites.kutils$isSelectable#android.widget.TextViewcom.celites.kutils/android.widget.-text-view/is-selectable.html
+$dokka.location:com.celites.kutils$isVideo#androidx.documentfile.provider.DocumentFilecom.celites.kutils/androidx.documentfile.provider.-document-file/is-video.html
+$dokka.location:com.celites.kutils$jobScheduler#android.content.Contextcom.celites.kutils/android.content.-context/job-scheduler.html
+$dokka.location:com.celites.kutils$keyguardManager#android.content.Contextcom.celites.kutils/android.content.-context/keyguard-manager.html
+$dokka.location:com.celites.kutils$launcherApps#android.content.Contextcom.celites.kutils/android.content.-context/launcher-apps.html
+$dokka.location:com.celites.kutils$layoutInflater#android.content.Contextcom.celites.kutils/android.content.-context/layout-inflater.html
+$dokka.location:com.celites.kutils$locationManager#android.content.Contextcom.celites.kutils/android.content.-context/location-manager.html
+$dokka.location:com.celites.kutils$makeCall(android.content.Context, kotlin.String)com.celites.kutils/android.content.-context/make-call.html
+$dokka.location:com.celites.kutils$mediaProjectionManager#android.content.Contextcom.celites.kutils/android.content.-context/media-projection-manager.html
+$dokka.location:com.celites.kutils$mediaRouter#android.content.Contextcom.celites.kutils/android.content.-context/media-router.html
+$dokka.location:com.celites.kutils$mediaSessionManager#android.content.Contextcom.celites.kutils/android.content.-context/media-session-manager.html
+$dokka.location:com.celites.kutils$minute#java.util.Calendarcom.celites.kutils/java.util.-calendar/minute.html
+$dokka.location:com.celites.kutils$minute#java.util.Datecom.celites.kutils/java.util.-date/minute.html
+$dokka.location:com.celites.kutils$month#java.util.Calendarcom.celites.kutils/java.util.-calendar/month.html
+$dokka.location:com.celites.kutils$monthFromCalendar#java.util.Datecom.celites.kutils/java.util.-date/month-from-calendar.html
+$dokka.location:com.celites.kutils$negativeButton(androidx.appcompat.app.AlertDialog.Builder, kotlin.String, kotlin.Function1((kotlin.Int, kotlin.Unit)))com.celites.kutils/androidx.appcompat.app.-alert-dialog.-builder/negative-button.html
+$dokka.location:com.celites.kutils$neutralButton(androidx.appcompat.app.AlertDialog.Builder, kotlin.String, kotlin.Function1((kotlin.Int, kotlin.Unit)))com.celites.kutils/androidx.appcompat.app.-alert-dialog.-builder/neutral-button.html
+$dokka.location:com.celites.kutils$nfcManager#android.content.Contextcom.celites.kutils/android.content.-context/nfc-manager.html
+$dokka.location:com.celites.kutils$notificationManager#android.content.Contextcom.celites.kutils/android.content.-context/notification-manager.html
+$dokka.location:com.celites.kutils$nsdManager#android.content.Contextcom.celites.kutils/android.content.-context/nsd-manager.html
+$dokka.location:com.celites.kutils$positiveButton(androidx.appcompat.app.AlertDialog.Builder, kotlin.String, kotlin.Function1((kotlin.Int, kotlin.Unit)))com.celites.kutils/androidx.appcompat.app.-alert-dialog.-builder/positive-button.html
+$dokka.location:com.celites.kutils$powerManager#android.content.Contextcom.celites.kutils/android.content.-context/power-manager.html
+$dokka.location:com.celites.kutils$printManager#android.content.Contextcom.celites.kutils/android.content.-context/print-manager.html
+$dokka.location:com.celites.kutils$put(android.content.SharedPreferences, kotlin.Boolean, kotlin.Array((kotlin.Pair((kotlin.String, kotlin.Any)))))com.celites.kutils/android.content.-shared-preferences/put.html
+$dokka.location:com.celites.kutils$put(android.os.Bundle, kotlin.Array((kotlin.Pair((kotlin.String, kotlin.Any)))))com.celites.kutils/android.os.-bundle/put.html
+$dokka.location:com.celites.kutils$put(android.os.Bundle, kotlin.Pair((kotlin.String, kotlin.Any)))com.celites.kutils/android.os.-bundle/put.html
+$dokka.location:com.celites.kutils$readAttributes(android.view.View, android.util.AttributeSet, kotlin.IntArray, kotlin.Function1((android.content.res.TypedArray, kotlin.Unit)))com.celites.kutils/android.view.-view/read-attributes.html
+$dokka.location:com.celites.kutils$remove(android.content.SharedPreferences, kotlin.String)com.celites.kutils/android.content.-shared-preferences/remove.html
+$dokka.location:com.celites.kutils$removeNotification(android.content.Context, kotlin.Int)com.celites.kutils/android.content.-context/remove-notification.html
+$dokka.location:com.celites.kutils$restrictionsManager#android.content.Contextcom.celites.kutils/android.content.-context/restrictions-manager.html
+$dokka.location:com.celites.kutils$searchManager#android.content.Contextcom.celites.kutils/android.content.-context/search-manager.html
+$dokka.location:com.celites.kutils$second#java.util.Calendarcom.celites.kutils/java.util.-calendar/second.html
+$dokka.location:com.celites.kutils$second#java.util.Datecom.celites.kutils/java.util.-date/second.html
+$dokka.location:com.celites.kutils$sendEmail(android.content.Context, kotlin.String, kotlin.String, kotlin.String, android.net.Uri)com.celites.kutils/android.content.-context/send-email.html
+$dokka.location:com.celites.kutils$sensorManager#android.content.Contextcom.celites.kutils/android.content.-context/sensor-manager.html
+$dokka.location:com.celites.kutils$setNotification(android.content.Context, kotlin.Int, kotlin.String, kotlin.Function1((androidx.core.app.NotificationCompat.Builder, kotlin.Any)))com.celites.kutils/android.content.-context/set-notification.html
+$dokka.location:com.celites.kutils$setSupportActionbar(androidx.fragment.app.Fragment, androidx.appcompat.widget.Toolbar)com.celites.kutils/androidx.fragment.app.-fragment/set-support-actionbar.html
+$dokka.location:com.celites.kutils$share(android.content.Context, kotlin.String)com.celites.kutils/android.content.-context/share.html
+$dokka.location:com.celites.kutils$sharedPreferences#android.content.Contextcom.celites.kutils/android.content.-context/shared-preferences.html
+$dokka.location:com.celites.kutils$showDialog(android.content.Context, kotlin.Int, kotlin.Boolean, kotlin.Boolean, kotlin.Function1((androidx.appcompat.app.AlertDialog.Builder, kotlin.Any)))com.celites.kutils/android.content.-context/show-dialog.html
+$dokka.location:com.celites.kutils$showPopupMenu(android.view.View, kotlin.Int, kotlin.Function1((android.view.MenuItem, kotlin.Unit)))com.celites.kutils/android.view.-view/show-popup-menu.html
+$dokka.location:com.celites.kutils$startActivity(android.app.Activity, kotlin.Int, android.net.Uri, android.os.Bundle)com.celites.kutils/android.app.-activity/start-activity.html
+$dokka.location:com.celites.kutils$startActivity(android.content.Context, kotlin.Int, android.net.Uri, android.os.Bundle)com.celites.kutils/android.content.-context/start-activity.html
+$dokka.location:com.celites.kutils$startActivity(androidx.fragment.app.Fragment, kotlin.Int, android.net.Uri, android.os.Bundle)com.celites.kutils/androidx.fragment.app.-fragment/start-activity.html
+$dokka.location:com.celites.kutils$startActivityForResult(android.app.Activity, kotlin.Int, android.net.Uri, android.os.Bundle, kotlin.Int)com.celites.kutils/android.app.-activity/start-activity-for-result.html
+$dokka.location:com.celites.kutils$startActivityForResult(androidx.fragment.app.Fragment, kotlin.Int, android.net.Uri, android.os.Bundle, kotlin.Int)com.celites.kutils/androidx.fragment.app.-fragment/start-activity-for-result.html
+$dokka.location:com.celites.kutils$startService(android.content.Context, kotlin.Int, android.net.Uri, android.os.Bundle)com.celites.kutils/android.content.-context/start-service.html
+$dokka.location:com.celites.kutils$storageManager#android.content.Contextcom.celites.kutils/android.content.-context/storage-manager.html
+$dokka.location:com.celites.kutils$telecomManager#android.content.Contextcom.celites.kutils/android.content.-context/telecom-manager.html
+$dokka.location:com.celites.kutils$telephonyManager#android.content.Contextcom.celites.kutils/android.content.-context/telephony-manager.html
+$dokka.location:com.celites.kutils$textColorAnim(android.widget.TextView, kotlin.Int, kotlin.Int)com.celites.kutils/android.widget.-text-view/text-color-anim.html
+$dokka.location:com.celites.kutils$textServicesManager#android.content.Contextcom.celites.kutils/android.content.-context/text-services-manager.html
+$dokka.location:com.celites.kutils$toBitmap(android.graphics.drawable.Drawable, android.content.res.Resources)com.celites.kutils/android.graphics.drawable.-drawable/to-bitmap.html
+$dokka.location:com.celites.kutils$toDate(kotlin.String, kotlin.String)com.celites.kutils/kotlin.-string/to-date.html
+$dokka.location:com.celites.kutils$toMap(android.os.Bundle)com.celites.kutils/android.os.-bundle/to-map.html
+$dokka.location:com.celites.kutils$toast(android.content.Context, kotlin.String, kotlin.String, kotlin.Int)com.celites.kutils/android.content.-context/toast.html
+$dokka.location:com.celites.kutils$tvInputManager#android.content.Contextcom.celites.kutils/android.content.-context/tv-input-manager.html
+$dokka.location:com.celites.kutils$typefaceFromAssets(android.content.Context, kotlin.Int)com.celites.kutils/android.content.-context/typeface-from-assets.html
+$dokka.location:com.celites.kutils$typefaceFromAssets(android.content.Context, kotlin.String)com.celites.kutils/android.content.-context/typeface-from-assets.html
+$dokka.location:com.celites.kutils$uiModeManager#android.content.Contextcom.celites.kutils/android.content.-context/ui-mode-manager.html
+$dokka.location:com.celites.kutils$updateTextAppearance(android.widget.TextView, kotlin.Int)com.celites.kutils/android.widget.-text-view/update-text-appearance.html
+$dokka.location:com.celites.kutils$usbManager#android.content.Contextcom.celites.kutils/android.content.-context/usb-manager.html
+$dokka.location:com.celites.kutils$useIfEmpty(kotlin.String, kotlin.String)com.celites.kutils/kotlin.-string/use-if-empty.html
+$dokka.location:com.celites.kutils$userManager#android.content.Contextcom.celites.kutils/android.content.-context/user-manager.html
+$dokka.location:com.celites.kutils$versionCode#android.content.Contextcom.celites.kutils/android.content.-context/version-code.html
+$dokka.location:com.celites.kutils$versionName#android.content.Contextcom.celites.kutils/android.content.-context/version-name.html
+$dokka.location:com.celites.kutils$vibrator#android.content.Contextcom.celites.kutils/android.content.-context/vibrator.html
+$dokka.location:com.celites.kutils$wallpaperService#android.content.Contextcom.celites.kutils/android.content.-context/wallpaper-service.html
+$dokka.location:com.celites.kutils$wifiManager#android.content.Contextcom.celites.kutils/android.content.-context/wifi-manager.html
+$dokka.location:com.celites.kutils$wifiP2pManager#android.content.Contextcom.celites.kutils/android.content.-context/wifi-p2p-manager.html
+$dokka.location:com.celites.kutils$windowService#android.content.Contextcom.celites.kutils/android.content.-context/window-service.html
+$dokka.location:com.celites.kutils$year#java.util.Calendarcom.celites.kutils/java.util.-calendar/year.html
+$dokka.location:com.celites.kutils$yearFromCalendar#java.util.Datecom.celites.kutils/java.util.-date/year-from-calendar.html
+com.celites.kutils
